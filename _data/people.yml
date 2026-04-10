@@ -1,24 +1,13 @@
+# Students and mentees, shown on the About page.
+# Each entry needs: name, location, degree, year
+
+# EXAMPLE -- replace or delete
 - name: Student Here
-  location: Univesity Here
-  degree: Ph.D. 
+  location: University Here
+  degree: Ph.D.
   year: 2022
 
 - name: Student Here
-  location: Univesity Here
-  degree: Ph.D. 
-  year: 2021
-
-- name: Student Here
-  location: Univesity Here
-  degree: Ph.D. 
-  year: 2020
-
-- name: Student Here
-  location: Univesity Here
+  location: University Here
   degree: M.S.
-  year: 2020
-
-- name: Student Here
-  location: Univesity Here
-  degree: B.S.
   year: 2020

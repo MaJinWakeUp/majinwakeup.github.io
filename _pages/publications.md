@@ -3,30 +3,22 @@ title: "Publications"
 layout: gridlay
 sitemap: false
 permalink: /publications/
-years: [2016, 2017, 2018, 2019, 2020, 2021]
 ---
 
-<style>
-.jumbotron{
-    padding:3%;
-    padding-bottom:10px;
-    padding-top:10px;
-    margin-top:10px;
-    margin-bottom:30px;
-}
-</style>
+## Publications
 
-<div class="jumbotron">
-### Preprints
+<input type="text" class="pub-search" id="pubSearch" placeholder="Filter by title, author, or year...">
+
+<div class="section-card" id="pubList">
+<h3>Preprints</h3>
+
 {% bibliography --query @unpublished %}
-</div>
 
-<div class="jumbotron">
-### Refereed journal articles
+<h3>Refereed Journal Articles</h3>
+
 {% bibliography --query @article %}
-</div>
 
-<div class="jumbotron">
-### Refereed conference proceedings
+<h3>Refereed Conference Proceedings</h3>
+
 {% bibliography --query @inproceedings %}
 </div>

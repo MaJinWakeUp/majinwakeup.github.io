@@ -5,24 +5,29 @@ sitemap: false
 permalink: /
 ---
 
-### Welcome!
+<h2 class="home-hero">{{ site.name }}</h2>
+<p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
+
+<div class="chip-container" markdown="0">
+<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Mechanics</a>
+<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Electrodynamics</a>
+<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Particle Physics</a>
+<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Path Integrals</a>
+</div>
 
 Theoretical physics is a branch of physics that focuses on the development of mathematical models and theories to understand and explain natural phenomena.
 It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
 Research in theoretical physics helps us to make predictions about how the universe works and to test these predictions through experiments.
-It also helps us to understand the fundamental principles that govern the behavior of matter and energy, and to explore the limits of our current knowledge.
-Theoretical physics helps us to make progress in a wide range of fields, including cosmology, particle physics, and quantum mechanics, and it has led to many important discoveries and technological innovations.
 
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" width="100%"/><br/>
-Examples of Feynman diagrams. <br/>
-Feynman R., The theory of positrons. <i>Phys. Rev.</i> (1949)
-</center>
+<div class="callout callout-success" markdown="0">
+<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Example Highlight</div>
+<p>This is an example callout box. Use it to highlight awards, announcements, or important news. Edit this in <code>_pages/home.md</code>.</p>
 </div>
+
+<div class="banner-frame" markdown="0">
+<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Feynman diagrams" loading="lazy">
+<div class="banner-caption">Examples of Feynman diagrams. Feynman R., <em>The theory of positrons. Phys. Rev.</em> (1949)</div>
 </div>
-<br/>
 
 ### About me
 

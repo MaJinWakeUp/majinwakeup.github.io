@@ -1,9 +1,15 @@
-- name: Example student name
-  photo: rock.jpg
-  info: Postdoc, started Oct 2040
-  email: exampleemail@gmail.com
-  website: https://website.com
+# Current students and postdocs.
+# Each entry needs: name, photo, info
+# Optional: email, website, scholar, github, researchgate, cv
+# Photos go in images/ or images/team/
 
-- name: "This could be you !"
+# EXAMPLE -- replace or delete
+- name: Example Student Name
+  photo: rock.jpg           # file in images/ or images/team/
+  info: Postdoc, started Oct 2040
+  email: example@gmail.com  # optional
+  website: https://example.com  # optional
+
+- name: "This could be you!"
   photo: rock.jpg
-  info: See <a href="www">openings</a> for more info
+  info: See openings for more info

@@ -1,17 +1,19 @@
 ---
 title: "News"
-layout: textlay
+layout: gridlay
 sitemap: false
 permalink: /allnews.html
 ---
 
 ## News
 
-<div class="jumbotron">
+<div class="section-card" markdown="0">
+<div class="news-timeline">
 {% for article in site.data.news %}
-<b>{{ article.date }}</b>
-
-{{ article.headline }}
+<div class="news-item">
+<span class="news-date">{{ article.date }}</span>
+<span class="news-headline">{{ article.headline }}</span>
+</div>
 {% endfor %}
-
+</div>
 </div>
