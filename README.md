@@ -1,5 +1,91 @@
 # A website template for academics
 
+## Features
+
+* **Modern design** — Inter font, responsive CSS Grid layouts, smooth animations
+* **Dark mode** — toggle in navbar, respects system preference, persists across visits
+* **Publication management** — auto-generated from BibTeX via Jekyll Scholar, with search/filter
+* **Easy setup** — run `./setup.sh` or edit the numbered steps in `_config.yml`
+* **Responsive** — works on desktop, tablet, and mobile
+* **Fontawesome 6 + Academicons** — email, CV, Google Scholar, GitHub, ORCID, and more
+* **Pill-style action buttons** — PDF, DOI, arXiv, BIB, Abstract with smooth expand/collapse
+
+## Quick Start
+
+1. **Fork** [this repository](https://github.com/sbryngelson/academic-website-template)
+2. **Install** [Jekyll](https://jekyllrb.com/docs/installation/) and run `bundle install`
+3. **Configure** your site — either:
+   * Run `./setup.sh` for an interactive setup, or
+   * Edit `_config.yml` directly (follow Steps 1–4 in the file)
+4. **Add your publications** to `assets/ref.bib`
+5. **Customize** data files in `_data/` (team members, news, awards, etc.)
+6. **Preview** with `bundle exec jekyll serve` at `localhost:4000`
+
+## Customization
+
+### _config.yml
+
+The config file is organized into 4 numbered steps:
+1. **Your Identity** — name, title, institution, email, photo
+2. **Your Links** — Google Scholar, GitHub, ORCID, Twitter, LinkedIn, CV
+3. **Site Settings** — accent color, dark mode toggle, analytics
+4. **Your Pages** — comment out any pages you don't need
+
+### Data Files (_data/)
+
+| File | Purpose |
+|------|---------|
+| `team_members.yml` | Current students and postdocs |
+| `alumni.yml` | Former lab members |
+| `news.yml` | News items (3 most recent shown on home) |
+| `awards.yml` | Awards and honors |
+| `grants.yml` | Grants and funding |
+| `funders.yml` | Funder logos |
+| `people.yml` | Students and mentees |
+| `pi.yml` | Optional: detailed education for About page |
+
+Each file has inline comments explaining every field.
+
+### Pages
+
+All pages are in `_pages/`. Edit the Markdown content directly. Pages use the `gridlay` layout by default — see `_layouts/` for other options.
+
+### Accent Color & Dark Mode
+
+Set `accent_color` in `_config.yml` to change the theme color (links, buttons, highlights). Set `dark_mode: false` to disable the dark mode toggle.
+
+### Advanced: CSS & JS Customization
+
+The site uses modular SASS in `_sass/` (base, components, layouts, utilities). To modify:
+
+1. Edit files in `_sass/` — changes are picked up by Jekyll's SASS compiler
+2. For JavaScript changes, edit `assets/js/site.js` then run `npm run build`
+3. Pre-built JS is committed, so `npm` is only needed if you modify the JS source
+
+## Publications
+
+Publications are managed via [Jekyll Scholar](https://github.com/inukshuk/jekyll-scholar) using BibTeX. Edit `assets/ref.bib` with your references. The publications page includes a search bar for filtering by title, author, or year.
+
+Update `scholar.last_name` and `scholar.first_name` in `_config.yml` to auto-bold your name.
+
+## Hosting
+
+### GitHub Pages
+
+Fork this repo as `your_username.github.io` and push. GitHub Pages will build and host it automatically. Note: Jekyll Scholar requires building locally — use the `Rakefile` or a GitHub Action.
+
+### Custom Domain
+
+Purchase a domain, update the `CNAME` file, and configure DNS to point to GitHub Pages. See [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+
+### Self-Hosting
+
+Build locally with `bundle exec jekyll serve`, then upload the `_site/` directory to your server. Set `url` and `baseurl` in `_config.yml` accordingly.
+
+## Upgrading
+
+If you're coming from the previous version of this template, see [UPGRADING.md](UPGRADING.md) for migration instructions.
+
 ## Users
 
 Some users:
@@ -76,138 +162,15 @@ Some users:
 
 __If you are using this template, feel free to share your site with me, and I'll add it here!__
 
-## Introduction 
-
-This is a statically-generated Jekyll/Liquid/Bootstrap-based website template for academics.
-I started with the [Allan lab](https://www.allanlab.org/) webpage and modified it into a personal academic webpage that met my requirements.
-I worked in a unique set of the features that I desired and could not find in publicly available templates elsewhere.
-Some examples are:
-
-* Automatically generated buttons for DOI/PDF/ARXIV/BIB/Abstract information
-  * via Jekyll Scholar
-* Bibliography information and abstracts open in drown-down wells via buttons
-* Fontawesome icons (email, CV, Google Scholar, ResearchGate, GitHub, etc.)
-* Dark color scheme via Bootswatch
-* Consistent and attractive `About me` page
-
-I encourage using this webpage as a template for your academic website.
-The remainder of this document describes how to do this.
-Broadly speaking, there are three steps:
-
-* [Fork](#fork-and-build)
-* [Customize](#customization)
-* [Host](#hosting)
-
-## Fork and build
-
-* Fork [this repository](https://github.com/sbryngelson/sbryngelson.github.io) by clicking the `fork` button in the top-right corner of its Github page.
-* Install [Jekyll](https://jekyllrb.com/docs/installation/)  (version less than 4.0 required) on your local computer
-    * On MacOS, you will need to upgrade your Ruby version from the depricated v2.3 that is shipped. Follow the above Jekyll instructions closely.
-* Run `$ bundle exec jekyll serve` in the repository root directory
-* Your site is now hosted locally at `localhost:4000`, which you can access with your web browser.
-   * It will be automatically rebuilt as you save changes to the files it contains.
-   Refreshing your web browser reveals these changes.
-
-Note:
-* This webpage uses Jekyll plugins like Jekyll Scholar to automatically build your bibliography. 
-  If you are using GitHub pages, you will have to build the site with the `Rakefile` in the root directory of the source branch.
-  You can do so by first modifying the file as appropriate and then, after pushing your changes, execute `rake publish`.
-
-## Customization
-
-* Modify `_config.yml` as appropriate
-* Modify YAML database files, located in `_data/*.yml`, as appropriate
-* Modify individual pages, located in `_pages/*.md`, as appropriate
-
-### Navbar
-
-The pages in the top navbar are in the `_config.yml` file.
-The typical options are already included or commented on, though additional pages can be created and listed here.
-
-### Creating or editing pages
-
-All pages are located in the `_pages` directory.
-Pages generally load information from YAML databases located as `_data/*.yml`.
-Creating new pages can be done by using existing pages as a template.
-
-#### Page header information
-
-All pages require header information.
-Example header data for the 'Talks' page is below.
-```
----
-title: "Talks"
-layout: gridlay
-sitemap: false
-permalink: /talks/
----
-```
-The `layout` variable corresponds to HTML layouts in the `_layouts` directory.
-The difference between most layouts is subtle, and `gridlay` can generally be used.
-The permalink must be unique for each page and correspond to the directory storing the page in the compiled HTML.
-Refer to your pages in `_config.yml` via the `title` variable.
-
-#### Markdown
-
-All pages are written in [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) as `*.md`.
-HTML commands and CSS styles can be directly used in a markdown files.
-
-#### Publication page and database
-
-The publications and talks are now listed via Jekyll Scholar.
-The bibliography file `ref.bib` is located in the `assets/` directory.
-Modify according to your needs.
-
-## Hosting
-
-Once your site has been modified to fit your needs, you should host it somewhere so others can access it.
-
-### Github pages
-
-A simple way to host your site for free is via [Github Pages](https://pages.github.com/).
-This will provide you with a free domain name at your_github_username.github.io.
-Instructions on how to do this are available on their page.
-They generally involve creating a repository on your Github titled `your_github_username.github.io` and uploading your files there (everything except the `_site/` directory, which the GitHub Pages service will generate using its own version of Jekyll).
-Then, GitHub will automatically rebuild your site every time you push a commit to the repository (no bundle/Jekyll commands required).
-
-### Custom domain names
-
-You can use a standard domain service (e.g. [GoDaddy](https://www.godaddy.com/)) to purchase a domain name.
-Then, using the `CNAME` file and modifying the DNS settings of the domain service, you can direct your custom domain to the GitHub Pages-generated site.
-Detailed instructions for doing this for GoDaddy domains are available [here](https://hackernoon.com/how-to-set-up-godaddy-domain-with-github-pages-a9300366c7b), though analogous instructions apply to other services.
-
-### Hosting elsewhere
-
-If you already have a hosting service for a static HTML webpage, such as some universities provide, you can build your website locally using `bundle exec jekyll serve`.
-Then, upload the resulting files to this server via SSH or FTP via the `_site/` directory.
-Be sure that the `site.url` and `site.baseurl` are set appropriately in the `_config.yml` file.
-
 ## Alternatives
 
-### Static website generators
-
-A list of static webpage generators is available [here](https://www.staticgen.com/).
-For academic purposes, I believe most people use [Jekyll](https://jekyllrb.com/) or [Hugo](https://gohugo.io/).
-I am mostly unaware of their relative merits.
-However, both are relatively easy to use and offer many templates to base your ideas off of.
-This, in combination with their large user bases, makes them particularly attractive.
-This site is built with Jekyll.
-
-### Templates
-
-Other Jekyll templates are, of course, available.
-Some of these are viable for very simple academic pages with little tuning:
 * [Minimal mistakes](https://mmistakes.github.io/minimal-mistakes/)
 * [al-folio](https://github.com/alshedivat/al-folio)
 * [academicpages](https://academicpages.github.io/)
 
-However, they do not natively include many of the features I list at the top.
-For this reason, I decided to construct my own.
-
 ## Acknowledgment
 
-I credit the [Allen Lab](https://www.allanlab.org/) for creating a beautiful academic research group webpage.
-Many parts of this site were adopted or copied from their laboratory webpage.
+I credit the [Allen Lab](https://www.allanlab.org/) for creating a beautiful academic research group webpage. Many parts of this site were adopted or copied from their laboratory webpage.
 
 ## License
 
