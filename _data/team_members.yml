@@ -3,12 +3,17 @@
 # Optional: email, website, scholar, github, researchgate, cv
 # Photos go in images/ or images/team/
 
-# EXAMPLE -- replace or delete
-- name: Example Student Name
-  photo: rock.jpg           # file in images/ or images/team/
-  info: Postdoc, started Oct 2040
-  email: example@gmail.com  # optional
-  website: https://example.com  # optional
+- name: George Zweig
+  photo: rock.jpg
+  info: PhD Student, Quark Model
+
+- name: Albert Hibbs
+  photo: rock.jpg
+  info: PhD Student, Quantum Mechanics
+
+- name: Thomas Curtright
+  photo: rock.jpg
+  info: PhD Student, Quantum Field Theory
 
 - name: "This could be you!"
   photo: rock.jpg
