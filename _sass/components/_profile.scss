@@ -1,0 +1,40 @@
+// =============================================================
+// Profile card — home page sidebar
+// =============================================================
+
+.profile-card {
+  text-align: center;
+  position: sticky;
+  top: calc(var(--space-16) + 1rem);
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-4);
+    border: 3px solid var(--border-color);
+  }
+
+  .profile-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+    margin-top: 0;
+  }
+
+  .profile-title,
+  .profile-institution {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-1);
+  }
+
+  .profile-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+}

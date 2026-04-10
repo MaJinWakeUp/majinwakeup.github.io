@@ -1,0 +1,52 @@
+// =============================================================
+// Typography — Inter + JetBrains Mono
+// =============================================================
+// Font import is in head.html via <link> tag for performance.
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+h1 { font-size: 2.441rem; }
+h2 { font-size: 1.953rem; }
+h3 { font-size: 1.563rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+pre {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+ul, ol {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}

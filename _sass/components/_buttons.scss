@@ -1,0 +1,80 @@
+// =============================================================
+// Pill buttons and icon links
+// =============================================================
+
+.btn-pill {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  line-height: 1.5;
+
+  &.btn-pdf {
+    background-color: #16a34a;
+    color: #fff;
+    &:hover { background-color: #15803d; color: #fff; }
+  }
+
+  &.btn-doi {
+    background-color: var(--accent);
+    color: #fff;
+    &:hover { background-color: var(--accent-hover); color: #fff; }
+  }
+
+  &.btn-arxiv {
+    background-color: var(--accent);
+    color: #fff;
+    &:hover { background-color: var(--accent-hover); color: #fff; }
+  }
+
+  &.btn-bib,
+  &.btn-abstract {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+    &:hover {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+  }
+
+  &.btn-website {
+    background-color: #16a34a;
+    color: #fff;
+    &:hover { background-color: #15803d; color: #fff; }
+  }
+
+  &.btn-git {
+    background-color: #6366f1;
+    color: #fff;
+    &:hover { background-color: #4f46e5; color: #fff; }
+  }
+
+  &.btn-paper {
+    background-color: #dc2626;
+    color: #fff;
+    &:hover { background-color: #b91c1c; color: #fff; }
+  }
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  font-size: 1.25rem;
+
+  &:hover {
+    color: var(--accent);
+    background-color: var(--bg-secondary);
+  }
+}

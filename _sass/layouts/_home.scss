@@ -1,0 +1,49 @@
+// =============================================================
+// Home page — two-column grid layout
+// =============================================================
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-8);
+  align-items: start;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-content {
+  min-width: 0;
+
+  h3:first-child {
+    margin-top: 0;
+  }
+}
+
+.news-timeline {
+  margin-top: var(--space-8);
+
+  .news-item {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--border-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .news-date {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .news-headline {
+    margin-top: var(--space-1);
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+}

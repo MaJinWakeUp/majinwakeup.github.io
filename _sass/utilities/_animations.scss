@@ -1,0 +1,26 @@
+// =============================================================
+// Animations — restrained, academic
+// =============================================================
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pub-collapse {
+    transition: none;
+  }
+}
