@@ -11,113 +11,75 @@ permalink: /team/
 
 ## PI
 
-{% for member in site.data.pi %}
-
-<div class="jumbotron">
-<div class="row">
-<div class="col-sm-2">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="max-width:250px"/>
+<div class="section-card">
+<div class="pi-card">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ site.photo }}" class="pi-photo" alt="{{ site.name }}" loading="lazy">
+  <div>
+    <h3 class="pi-name">{{ site.name }}</h3>
+    <p style="font-style: italic; color: var(--text-secondary);">{{ site.title }}, {{ site.institution }}</p>
+    <div class="pi-links">
+      {% if site.email %}<a href="mailto:{{ site.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+      {% if site.links.google_scholar %}<a href="{{ site.links.google_scholar }}" class="icon-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+      {% if site.links.cv %}<a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}" class="icon-link" title="CV"><i class="ai ai-cv"></i></a>{% endif %}
+      {% if site.links.github %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+      {% if site.links.researchgate %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
+    </div>
+    {% if site.data.pi[0].education %}
+    <ul style="margin-top: var(--space-4);">
+      {% for education in site.data.pi[0].education %}
+      <li>{{ education | replace: "-","&#8211;" }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
 </div>
-<div class="col-sm-9 col-xs-12">
-<h4>{{ member.name }}</h4>
-<i>{{ member.info }}</i><br>
-
-{% if member.website %}<a href="{{ member.website }}" target="_blank"><i class="fa fa-home fa-2x"></i></a> {% endif %} {% if member.email %}<a href="mailto:{{ member.email }}" target="_blank"><i class="fa fa-envelope-square fa-2x"></i></a> {% endif %} {% if member.scholar %} <a href="{{ member.scholar }}" target="_blank"><i class="ai ai-google-scholar-square ai-2x"></i></a> {% endif %} {% if member.cv %} <a href="{{ member.cv }}" target="_blank"><i class="ai ai-cv-square ai-2x"></i></a> {% endif %} {% if member.github %} <a href="{{ member.github }}" target="_blank"><i class="fa fa-github-square fa-2x"></i></a> {% endif %} {% if member.researchgate %} <a href="{{ member.researchgate }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a> {% endif %}
-
-<ul style="overflow: hidden">
-<li> {{ member.education[0] }} </li>
-<li> {{ member.education[1] }} </li>
-</ul>
-</div>
-</div>
 </div>
 
-{% endfor %}
-
+{% if site.data.team_members.size > 0 %}
 ## Current Students and Postdocs
 
-<div class='jumbotron'>
-{% assign number_printed = 0 %}
+<div class="team-grid">
 {% for member in site.data.team_members %}
-
-{% assign even_odd = number_printed | modulo: 2 %}
-
-{% if even_odd == 0 %}
-
-<div class="row">
-{% endif %}
-
-<div class="col-sm-2">
-<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="max-width:250px"/>
+<div class="team-card">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" class="team-photo" alt="{{ member.name }}" loading="lazy">
+  <h4 class="team-name">{{ member.name }}</h4>
+  <p class="team-info">{{ member.info }}</p>
+  <div class="team-links">
+    {% if member.email %}<a href="mailto:{{ member.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+    {% if member.website %}<a href="{{ member.website }}" class="icon-link" title="Website"><i class="fa-solid fa-house"></i></a>{% endif %}
+    {% if member.scholar %}<a href="{{ member.scholar }}" class="icon-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+    {% if member.github %}<a href="{{ member.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+  </div>
 </div>
-<div class="col-sm-4 col-xs-12">
-  <h4>{{ member.name }}</h4>
-  <i>{{ member.info }}<br></i>
-
-{% if member.website %}<a href="{{ member.website }}" target="_blank"><i class="fa fa-home fa-2x"></i></a> {% endif %}
-{% if member.email %}<a href="mailto:{{ member.email }}" target="_blank"><i class="fa fa-envelope-square fa-2x"></i></a> {% endif %}
-{% if member.scholar %} <a href="{{ member.scholar }}" target="_blank"><i class="ai ai-google-scholar-square ai-2x"></i></a> {% endif %}
-{% if member.cv %} <a href="{{ member.cv }}" target="_blank"><i class="ai ai-cv-square ai-2x"></i></a> {% endif %}
-{% if member.github %} <a href="{{ member.github }}" target="_blank"><i class="fa fa-github-square fa-2x"></i></a> {% endif %}
-{% if member.researchgate %} <a href="{{ member.researchgate }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a> {% endif %}
-
-</div>
-<!-- </div> -->
-
-{% assign number_printed = number_printed | plus: 1 %}
-
-{% if even_odd == 1 %}
-
-</div>
-{% endif %}
-
 {% endfor %}
-
-{% assign even_odd = number_printed | modulo: 2 %}
-{% if even_odd == 1 %}
-
 </div>
 {% endif %}
-</div>
 
+{% if site.data.alumni.size > 0 %}
 ## Alumni
 
-<div class="jumbotron">
-{% assign number_printed = 0 %}
-{% for member in site.data.alumni %}
-
-{% assign even_odd = number_printed | modulo: 2 %}
-
-{% if even_odd == 0 %}
-
-<div class="row">
-{% endif %}
-
-<div class="col-sm-2">
-<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="max-width:250px"/>
-</div>
-<div class="col-sm-4 col-xs-12">
-  <h4>{{ member.name }}</h4>
-  <i>{{ member.duration }} <br> Role: {{ member.info }}</i>
-  <ul style="overflow: hidden">
-  </ul>
-</div>
-
-{% assign number_printed = number_printed | plus: 1 %}
-
-{% if even_odd == 1 %}
-
+<div class="section-card">
+<table class="alumni-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Current Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for member in site.data.alumni %}
+    <tr>
+      <td>{{ member.name }}</td>
+      <td>{{ member.duration }}</td>
+      <td>{{ member.info }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 </div>
 {% endif %}
-{% endfor %}
-
-{% assign even_odd = number_printed | modulo: 2 %}
-{% if even_odd == 1 %}
-
-</div>
-{% endif %}
-</div>
 
 ## Administrative Support
 
-<a href="exampleemail@gmail.com">Example staff</a> is helping us (and other groups) with administration.
+<a href="mailto:exampleemail@gmail.com">Example staff</a> is helping us (and other groups) with administration.

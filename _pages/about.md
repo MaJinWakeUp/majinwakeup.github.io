@@ -7,72 +7,72 @@ permalink: /about/
 
 ## About
 
-{% for member in site.data.pi %}
-
-<div class="jumbotron">
-<div class="row">
-<div class="col-sm-4">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="max-width:250px"/>
-</div>
-<div class="col-sm-8 col-xs-12">
-  <h3>{{ member.name }}</h3>
-  <h4><i>{{ member.info }}</i></h4>
-  {% if member.email %}<a href="mailto:{{ member.email }}" target="_blank"><i class="fa fa-envelope-square fa-3x"></i></a> {% endif %}
-  {% if member.cv %} <a href="{{ site.url }}{{ site.baseurl }}/{{ member.cv }}" target="_blank"><i class="ai ai-cv-square ai-3x"></i></a> {% endif %}
-  {% if member.scholar %} <a href="{{ member.scholar }}" target="_blank"><i class="ai ai-google-scholar-square ai-3x"></i></a> {% endif %}
-  {% if member.github %} <a href="{{ member.github }}" target="_blank"><i class="fa fa-github-square fa-3x"></i></a> {% endif %}
-  {% if member.researchgate %} <a href="{{ member.researchgate }}" target="_blank"><i class="ai ai-researchgate-square ai-3x"></i></a> {% endif %}
-
-  <ul style="overflow: hidden">
-    {% for education in member.education %}
+<div class="section-card">
+<div class="pi-card">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ site.photo }}" class="pi-photo" alt="{{ site.name }}" loading="lazy">
+  <div>
+    <h3 class="pi-name">{{ site.name }}</h3>
+    <p style="font-style: italic; color: var(--text-secondary);">{{ site.title }}, {{ site.institution }}</p>
+    <div class="pi-links">
+      {% if site.email %}<a href="mailto:{{ site.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+      {% if site.links.cv %}<a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}" class="icon-link" title="CV"><i class="ai ai-cv"></i></a>{% endif %}
+      {% if site.links.google_scholar %}<a href="{{ site.links.google_scholar }}" class="icon-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+      {% if site.links.github %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+      {% if site.links.researchgate %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
+    </div>
+    {% if site.data.pi[0].education %}
+    <ul style="margin-top: var(--space-4);">
+      {% for education in site.data.pi[0].education %}
       <li>{{ education | replace: "-","&#8211;" }}</li>
-    {% endfor %}
-  </ul>
-
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
 </div>
 </div>
-</div>
-{% endfor %}
 
 {% if site.data.grants %}
-
-<div class="jumbotron">
+<div class="section-card">
   <h3>Grants</h3>
   <ul>
     {% for grant in site.data.grants %}
-      <li>{{ grant.name }}</li>
+    <li>{{ grant.name }}</li>
     {% endfor %}
   </ul>
 </div>
 {% endif %}
 
 {% if site.data.awards %}
-
-<div class="jumbotron">
+<div class="section-card">
   <h3>Awards</h3>
   <ul>
     {% for award in site.data.awards %}
-      <li>{{ award.name | replace: "-","&#8211;" }}</li>
+    <li>{{ award.name | replace: "-","&#8211;" }}</li>
     {% endfor %}
   </ul>
 </div>
 {% endif %}
 
 {% if site.data.people %}
-
-<div class="jumbotron">
+<div class="section-card">
   <h3>Students and Mentoring</h3>
   <ul>
     {% for student in site.data.people %}
-      <li>{{ student.name }}, {{ student.location }} ({{ student.degree }}, {{ student.year }})</li>
+    <li>{{ student.name }}, {{ student.location }} ({{ student.degree }}, {{ student.year }})</li>
     {% endfor %}
   </ul>
 </div>
 {% endif %}
 
-<div class="jumbotron">
+{% if site.data.funders %}
+<div class="section-card">
   <h4>Sponsors</h4>
-  <div style='display:block; text-align:center; margin-left:auto; margin-right:auto;'>
-  {% for funder in site.data.funders %}<a href="{{ funder.url }}" target="_blank"><img src='{{ site.url }}{{ site.baseurl }}/images/{{ funder.image }}' style='max-height: 80px; max-width: 200px; margin: 1%'/></a>{% endfor %}
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-6);">
+    {% for funder in site.data.funders %}
+    <a href="{{ funder.url }}" target="_blank">
+      <img src="{{ site.url }}{{ site.baseurl }}/images/{{ funder.image }}" alt="Funder logo" style="max-height: 80px; max-width: 200px; border-radius: 0;" loading="lazy">
+    </a>
+    {% endfor %}
   </div>
 </div>
+{% endif %}

@@ -1,14 +1,21 @@
 ---
 title: "Blog"
-layout: page
+layout: gridlay
 sitemap: false
 permalink: /blogs/
 ---
 
-<ul>
+## Blog
+
+{% if site.posts.size > 0 %}
+<div class="section-card">
   {% for post in site.posts %}
-    <li>
-      {{ post.date | date_to_string }}: <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title}}</a>
-    </li>
+  <div class="news-item" style="padding: var(--space-4) 0; {% unless forloop.last %}border-bottom: 1px solid var(--border-color);{% endunless %}">
+    <div class="news-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+    <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" style="font-weight: 600;">{{ post.title }}</a>
+  </div>
   {% endfor %}
-</ul>
+</div>
+{% else %}
+<p class="text-muted">No blog posts yet.</p>
+{% endif %}
