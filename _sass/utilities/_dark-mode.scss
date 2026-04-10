@@ -17,4 +17,15 @@
   .pi-photo {
     filter: brightness(0.92);
   }
+
+  // Sponsor logos — invert so dark logos become visible
+  .sponsor-logos img {
+    filter: invert(1) brightness(1.8) contrast(0.8);
+    opacity: 0.75;
+    transition: opacity var(--transition-fast);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

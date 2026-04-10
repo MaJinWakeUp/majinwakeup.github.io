@@ -5,7 +5,8 @@ sitemap: false
 permalink: /
 ---
 
-### Welcome!
+<h2 class="home-hero">{{ site.name }}</h2>
+<p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
 
 Theoretical physics is a branch of physics that focuses on the development of mathematical models and theories to understand and explain natural phenomena.
 It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
