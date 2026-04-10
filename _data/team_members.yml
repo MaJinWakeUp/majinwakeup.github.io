@@ -4,15 +4,15 @@
 # Photos go in images/ or images/team/
 
 - name: George Zweig
-  photo: rock.jpg
+  photo: team/george-zweig.svg
   info: PhD Student, Quark Model
 
 - name: Albert Hibbs
-  photo: rock.jpg
+  photo: team/albert-hibbs.svg
   info: PhD Student, Quantum Mechanics
 
 - name: Thomas Curtright
-  photo: rock.jpg
+  photo: team/thomas-curtright.svg
   info: PhD Student, Quantum Field Theory
 
 - name: "This could be you!"
