@@ -1,8 +1,8 @@
 # A website template for academics
 
-![Home page — light mode](images/screenshots/home-light.png)
-
-![Home page — dark mode](images/screenshots/home-dark.png)
+<p align="center">
+  <img src="images/screenshots/home-hero.png" alt="Home page — light and dark mode" width="900">
+</p>
 
 ## Features
 
