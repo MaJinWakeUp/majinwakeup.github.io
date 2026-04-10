@@ -80,6 +80,18 @@ ul, ol {
   color: var(--text-muted) !important;
 }
 
+// MathJax — inherit text color in both modes
+mjx-container,
+mjx-container svg {
+  color: var(--text-primary) !important;
+}
+
+.MathJax_ref,
+mjx-container a {
+  color: var(--accent) !important;
+  fill: var(--accent) !important;
+}
+
 // Decorative thin rule
 hr {
   border: none;
