@@ -9,9 +9,9 @@
   Fork it. Fill in your info. Publish.
 </p>
 
-<p align="center">
-  <a href="https://sbryngelson.github.io/academic-website-template/"><strong>Live Demo</strong></a>
-</p>
+<h3 align="center">
+  <a href="https://sbryngelson.github.io/academic-website-template/">See the live demo &rarr;</a>
+</h3>
 
 <p align="center">
   <a href="#quick-start">Quick Start</a> &middot;
