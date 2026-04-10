@@ -2,6 +2,10 @@
 // Reset + global atmosphere
 // =============================================================
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
@@ -32,14 +36,33 @@ img {
   height: auto;
 }
 
+// Animated underline links — gradient trick for smooth width transition
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size var(--transition-base), color var(--transition-fast);
+  padding-bottom: 1px;
 
   &:hover {
     color: var(--accent-hover);
+    background-size: 100% 1px;
   }
+}
+
+// Exceptions — don't underline these on hover
+.nav-link,
+.navbar-brand,
+.icon-link,
+.btn-pill,
+.dark-mode-toggle,
+.profile-card a,
+.footer-copyright a {
+  background-image: none !important;
+  padding-bottom: 0;
 }
 
 ::selection {

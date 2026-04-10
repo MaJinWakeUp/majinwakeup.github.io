@@ -33,6 +33,11 @@
     margin-bottom: var(--space-4);
     border: 2px solid var(--bg-primary);
     box-shadow: 0 0 0 1px var(--border-color);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover .team-photo {
+    transform: scale(1.06);
   }
 
   .team-name {

@@ -11,9 +11,10 @@ Theoretical physics is a branch of physics that focuses on the development of ma
 It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
 Research in theoretical physics helps us to make predictions about how the universe works and to test these predictions through experiments.
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Feynman diagrams" loading="lazy" style="width: 100%; border-radius: var(--radius-lg); margin: var(--space-6) 0;">
-
-*Examples of Feynman diagrams. Feynman R., The theory of positrons. Phys. Rev. (1949)*
+<figure class="banner-frame">
+<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Feynman diagrams" loading="lazy">
+<figcaption>Examples of Feynman diagrams. Feynman R., <em>The theory of positrons. Phys. Rev.</em> (1949)</figcaption>
+</figure>
 
 ### About me
 

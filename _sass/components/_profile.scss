@@ -37,6 +37,11 @@
     box-shadow:
       0 0 0 1px var(--border-color),
       var(--shadow-md);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover .profile-photo {
+    transform: scale(1.04);
   }
 
   .profile-name {

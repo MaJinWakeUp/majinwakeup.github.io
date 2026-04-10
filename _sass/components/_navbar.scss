@@ -46,6 +46,22 @@
     color: var(--accent) !important;
     background-color: var(--accent-light);
   }
+
+  &.active {
+    color: var(--accent) !important;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: var(--space-3);
+      right: var(--space-3);
+      height: 2px;
+      background-color: var(--accent);
+      border-radius: 1px;
+    }
+  }
 }
 
 .dark-mode-toggle {
