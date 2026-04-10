@@ -108,10 +108,7 @@ Build locally with `bundle exec jekyll serve`, then upload the `_site/` director
 
 If you're coming from the previous version of this template, see [UPGRADING.md](UPGRADING.md) for migration instructions.
 
-## Users
-
-<details>
-<summary>70+ sites built with this template (click to expand)</summary>
+## Used by 200+ academics worldwide
 
 <a href="https://ilafly.github.io/" target="_blank">★</a>
 <a href="https://i-vesseg.github.io/" target="_blank">★</a>
@@ -178,8 +175,145 @@ If you're coming from the previous version of this template, see [UPGRADING.md](
 <a href="https://yunzhe-li.top/" target="_blank">★</a>
 <a href="https://xia-hu.github.io/" target="_blank">★</a>
 <a href="https://p-bajpai.github.io/" target="_blank">★</a>
-
-</details>
+<a href="https://aashen12.github.io/" target="_blank">★</a>
+<a href="https://Abdurrahheem.github.io/" target="_blank">★</a>
+<a href="https://abhimanyu911.github.io/" target="_blank">★</a>
+<a href="https://abhishek-sehgal.github.io/" target="_blank">★</a>
+<a href="https://adityaIyerramesh98.github.io/" target="_blank">★</a>
+<a href="https://AdityaSinghDevs.github.io/" target="_blank">★</a>
+<a href="https://aipsita.github.io/" target="_blank">★</a>
+<a href="https://albertopadovan.github.io/" target="_blank">★</a>
+<a href="https://alirezanorouziazad.github.io/" target="_blank">★</a>
+<a href="https://amy-tabb.github.io/" target="_blank">★</a>
+<a href="https://anedelin.github.io/" target="_blank">★</a>
+<a href="https://ansharora7.github.io/" target="_blank">★</a>
+<a href="https://avadapal.github.io/" target="_blank">★</a>
+<a href="https://avibagchi.github.io/" target="_blank">★</a>
+<a href="https://bc1032.github.io/" target="_blank">★</a>
+<a href="https://BDalheimer.github.io/" target="_blank">★</a>
+<a href="https://Bennibraun.github.io/" target="_blank">★</a>
+<a href="https://binbin-xie.github.io/" target="_blank">★</a>
+<a href="https://BiomedLabUGgt.github.io/" target="_blank">★</a>
+<a href="https://c752334430.github.io/" target="_blank">★</a>
+<a href="https://Chemical118.github.io/" target="_blank">★</a>
+<a href="https://chihaoy.github.io/" target="_blank">★</a>
+<a href="https://cjaynjoku.github.io/" target="_blank">★</a>
+<a href="https://DennisWayo.github.io/" target="_blank">★</a>
+<a href="https://dginsberg.github.io/" target="_blank">★</a>
+<a href="https://dgiovanis.github.io/" target="_blank">★</a>
+<a href="https://donghuison.github.io/" target="_blank">★</a>
+<a href="https://donghuixin.github.io/" target="_blank">★</a>
+<a href="https://drgHannah.github.io/" target="_blank">★</a>
+<a href="https://DrWeiChen.github.io/" target="_blank">★</a>
+<a href="https://econpotter.github.io/" target="_blank">★</a>
+<a href="https://elitalobo.github.io/" target="_blank">★</a>
+<a href="https://emilyvansyoc.github.io/" target="_blank">★</a>
+<a href="https://Erd-ling.github.io/" target="_blank">★</a>
+<a href="https://estimation-control-learning-laboratory.github.io/" target="_blank">★</a>
+<a href="https://EthanJ666.github.io/" target="_blank">★</a>
+<a href="https://f-farhan.github.io/" target="_blank">★</a>
+<a href="https://fekaputra.github.io/" target="_blank">★</a>
+<a href="https://FishyguyNeel.github.io/" target="_blank">★</a>
+<a href="https://flampouris.github.io/" target="_blank">★</a>
+<a href="https://flavio2018.github.io/" target="_blank">★</a>
+<a href="https://Frellaa.github.io/" target="_blank">★</a>
+<a href="https://gabrielpachecoribeiro.github.io/" target="_blank">★</a>
+<a href="https://gcg-helsinki.github.io/" target="_blank">★</a>
+<a href="https://giorgioarcara.github.io/" target="_blank">★</a>
+<a href="https://gmtang1212.github.io/" target="_blank">★</a>
+<a href="https://gmurtaza404.github.io/" target="_blank">★</a>
+<a href="https://Grupo-MATE.github.io/" target="_blank">★</a>
+<a href="https://guancai.github.io/" target="_blank">★</a>
+<a href="https://guharoysayak.github.io/" target="_blank">★</a>
+<a href="https://haochey.github.io/" target="_blank">★</a>
+<a href="https://HC-teemo.github.io/" target="_blank">★</a>
+<a href="https://heymarco.github.io/" target="_blank">★</a>
+<a href="https://hkkaushik.github.io/" target="_blank">★</a>
+<a href="https://HORIZON-COVER.github.io/" target="_blank">★</a>
+<a href="https://hrositi.github.io/" target="_blank">★</a>
+<a href="https://hsparkastro.github.io/" target="_blank">★</a>
+<a href="https://hyojoonkim.github.io/" target="_blank">★</a>
+<a href="https://JamesL404.github.io/" target="_blank">★</a>
+<a href="https://jasonarothman.github.io/" target="_blank">★</a>
+<a href="https://Jeffery-Zhou.github.io/" target="_blank">★</a>
+<a href="https://jianxyou.github.io/" target="_blank">★</a>
+<a href="https://Jiawei-sn.github.io/" target="_blank">★</a>
+<a href="https://jortizcs.github.io/" target="_blank">★</a>
+<a href="https://jtonos.github.io/" target="_blank">★</a>
+<a href="https://JudithBouman2412.github.io/" target="_blank">★</a>
+<a href="https://jujubonda.github.io/" target="_blank">★</a>
+<a href="https://jumeike.github.io/" target="_blank">★</a>
+<a href="https://Kadle11.github.io/" target="_blank">★</a>
+<a href="https://KaihangShi.github.io/" target="_blank">★</a>
+<a href="https://KALU-KELECHI-GABRIEL.github.io/" target="_blank">★</a>
+<a href="https://Khris-VI.github.io/" target="_blank">★</a>
+<a href="https://KieuTruong.github.io/" target="_blank">★</a>
+<a href="https://Koromonnnnnnnn.github.io/" target="_blank">★</a>
+<a href="https://ktvank.github.io/" target="_blank">★</a>
+<a href="https://Kunlun-Zhu.github.io/" target="_blank">★</a>
+<a href="https://kwakkyoleen.github.io/" target="_blank">★</a>
+<a href="https://leowangx2013.github.io/" target="_blank">★</a>
+<a href="https://lokingdav.github.io/" target="_blank">★</a>
+<a href="https://ltinphan.github.io/" target="_blank">★</a>
+<a href="https://lzy37ld.github.io/" target="_blank">★</a>
+<a href="https://manshri.github.io/" target="_blank">★</a>
+<a href="https://martinezach.github.io/" target="_blank">★</a>
+<a href="https://minhphd.github.io/" target="_blank">★</a>
+<a href="https://mohamed-s-ibrahim.github.io/" target="_blank">★</a>
+<a href="https://mohammedaflah.github.io/" target="_blank">★</a>
+<a href="https://monroyaume5.github.io/" target="_blank">★</a>
+<a href="https://mrajiullah.github.io/" target="_blank">★</a>
+<a href="https://msstate-athena.github.io/" target="_blank">★</a>
+<a href="https://mvanwyngarden.github.io/" target="_blank">★</a>
+<a href="https://Naeele.github.io/" target="_blank">★</a>
+<a href="https://Nebularaid2000.github.io/" target="_blank">★</a>
+<a href="https://neuronpain.github.io/" target="_blank">★</a>
+<a href="https://NickJi98.github.io/" target="_blank">★</a>
+<a href="https://noahzegna.github.io/" target="_blank">★</a>
+<a href="https://overlorde.github.io/" target="_blank">★</a>
+<a href="https://p4rkerw.github.io/" target="_blank">★</a>
+<a href="https://Penghuihuang2000.github.io/" target="_blank">★</a>
+<a href="https://Pragati-Meshram.github.io/" target="_blank">★</a>
+<a href="https://qianhuimen.github.io/" target="_blank">★</a>
+<a href="https://qzkiyoshi.github.io/" target="_blank">★</a>
+<a href="https://ricethchang.github.io/" target="_blank">★</a>
+<a href="https://robenlunardi.github.io/" target="_blank">★</a>
+<a href="https://royess.github.io/" target="_blank">★</a>
+<a href="https://rupendra248.github.io/" target="_blank">★</a>
+<a href="https://SantiagoxSosa.github.io/" target="_blank">★</a>
+<a href="https://saorisakaue.github.io/" target="_blank">★</a>
+<a href="https://SelzerConst.github.io/" target="_blank">★</a>
+<a href="https://sherdencooper.github.io/" target="_blank">★</a>
+<a href="https://shsjxzh.github.io/" target="_blank">★</a>
+<a href="https://Smadx.github.io/" target="_blank">★</a>
+<a href="https://sophie-carneiro.github.io/" target="_blank">★</a>
+<a href="https://ssun32.github.io/" target="_blank">★</a>
+<a href="https://st-eislab.github.io/" target="_blank">★</a>
+<a href="https://suprovo97.github.io/" target="_blank">★</a>
+<a href="https://takouajendoubi.github.io/" target="_blank">★</a>
+<a href="https://ThomasMartinez0.github.io/" target="_blank">★</a>
+<a href="https://thu-gyt.github.io/" target="_blank">★</a>
+<a href="https://tokeron.github.io/" target="_blank">★</a>
+<a href="https://ttadano.github.io/" target="_blank">★</a>
+<a href="https://valentinsix.github.io/" target="_blank">★</a>
+<a href="https://victorolaiya.github.io/" target="_blank">★</a>
+<a href="https://vmetsis.github.io/" target="_blank">★</a>
+<a href="https://wanganzhi.github.io/" target="_blank">★</a>
+<a href="https://wjin4.github.io/" target="_blank">★</a>
+<a href="https://wufan-here.github.io/" target="_blank">★</a>
+<a href="https://wumirose.github.io/" target="_blank">★</a>
+<a href="https://xianzhangchen.github.io/" target="_blank">★</a>
+<a href="https://xietian1.github.io/" target="_blank">★</a>
+<a href="https://Xueyi-Wang.github.io/" target="_blank">★</a>
+<a href="https://xyhanO.github.io/" target="_blank">★</a>
+<a href="https://yasserfarouk.github.io/" target="_blank">★</a>
+<a href="https://yewenC.github.io/" target="_blank">★</a>
+<a href="https://yilevine.github.io/" target="_blank">★</a>
+<a href="https://ykl7.github.io/" target="_blank">★</a>
+<a href="https://yminzhang.github.io/" target="_blank">★</a>
+<a href="https://yuminglab.github.io/" target="_blank">★</a>
+<a href="https://zeyuD.github.io/" target="_blank">★</a>
+<a href="https://zhoulongyu.github.io/" target="_blank">★</a>
 
 __If you are using this template, feel free to share your site with me, and I'll add it here!__
 
