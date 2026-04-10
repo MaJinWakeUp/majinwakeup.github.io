@@ -18,10 +18,4 @@
     filter: brightness(0.92);
   }
 
-  // Sponsor logos — light pill background so they stay readable
-  .sponsor-logos img {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: var(--radius-md);
-    padding: var(--space-2) var(--space-3);
-  }
 }
