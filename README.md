@@ -229,6 +229,8 @@ git commit -m "My academic website"
 git push
 ```
 
+A GitHub Actions workflow automatically builds and deploys your site on every push. Make sure to go to **Settings > Pages > Source** in your repo and select **GitHub Actions**.
+
 Your site will be live at `https://YOUR_USERNAME.github.io` within a few minutes.
 
 ---
@@ -293,7 +295,9 @@ Update `scholar.last_name` and `scholar.first_name` in `_config.yml` to auto-bol
 
 ### GitHub Pages
 
-Fork this repo as `your_username.github.io` and push. Note: Jekyll Scholar requires building locally, so use the included `Rakefile` or set up a GitHub Action.
+Fork this repo as `your_username.github.io` and push. A **GitHub Actions workflow** is included (`.github/workflows/deploy.yml`) that automatically builds the site with Jekyll Scholar and deploys to GitHub Pages on every push to `source`.
+
+To enable it: go to your repo's **Settings > Pages > Source** and select **GitHub Actions** instead of "Deploy from a branch".
 
 ### Custom Domain
 
