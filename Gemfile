@@ -5,6 +5,7 @@ gem "sass-embedded", "~> 1.77.0"  # pin to avoid noisy deprecation warnings from
 gem "rack", ">= 2.2.3"
 gem "kramdown-parser-gfm"
 gem 'jekyll-scholar'
+gem 'jekyll-sitemap'
 gem "webrick", "~> 1.7"
 gem "csv"
 gem "base64"
