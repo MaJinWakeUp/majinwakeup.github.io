@@ -1,5 +1,6 @@
 // =============================================================
-// site.js — Dark mode, publication filter, toggles, scroll effects
+// site.js — Dark mode, publication filter, toggles, scroll effects,
+//           copy bibtex, back-to-top, year badges
 // =============================================================
 
 (function () {
@@ -64,13 +65,80 @@
     });
   }
 
+  // ----- Copy BibTeX Button -----
+
+  document.querySelectorAll('.pub-collapse').forEach(function (collapse) {
+    // Only add copy to bibtex blocks (id starts with "bib-")
+    if (!collapse.id || !collapse.id.startsWith('bib-')) return;
+
+    var pre = collapse.querySelector('pre');
+    if (!pre) return;
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'copy-wrapper';
+    wrapper.style.position = 'relative';
+
+    var btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+    btn.title = 'Copy to clipboard';
+
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+    wrapper.appendChild(btn);
+  });
+
+  // ----- Publication Year Badges -----
+
+  document.querySelectorAll('.pub-entry').forEach(function (entry) {
+    var text = entry.textContent;
+    // Match a 4-digit year in parentheses, common in citation format
+    var match = text.match(/\((\d{4})\)/);
+    if (match) {
+      var badge = document.createElement('span');
+      badge.className = 'year-badge';
+      badge.textContent = match[1];
+      entry.insertBefore(badge, entry.firstChild);
+    }
+  });
+
+  // ----- Back to Top Button -----
+
+  var topBtn = document.createElement('button');
+  topBtn.className = 'back-to-top';
+  topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+  topBtn.setAttribute('aria-label', 'Back to top');
+  document.body.appendChild(topBtn);
+
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 400) {
+      topBtn.classList.add('visible');
+    } else {
+      topBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+
   // ----- Navbar Scroll Shadow -----
 
   var navbar = document.querySelector('.navbar');
   if (navbar) {
-    var scrollThreshold = 10;
     window.addEventListener('scroll', function () {
-      if (window.scrollY > scrollThreshold) {
+      if (window.scrollY > 10) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
