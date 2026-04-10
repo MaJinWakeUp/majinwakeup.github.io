@@ -1,15 +1,16 @@
 // =============================================================
-// Home page — two-column grid layout
+// Home page — two-column grid, editorial feel
 // =============================================================
 
 .home-grid {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: var(--space-8);
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-12);
   align-items: start;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 }
 
@@ -19,13 +20,21 @@
   h3:first-child {
     margin-top: 0;
   }
+
+  // First paragraph — slightly larger, editorial lead-in
+  > p:first-of-type {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
 }
 
+// News timeline
 .news-timeline {
   margin-top: 0;
 
   .news-item {
-    padding: var(--space-4) 0;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid var(--border-color);
 
     &:last-child {
@@ -34,16 +43,18 @@
   }
 
   .news-date {
-    font-size: 0.8125rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .news-headline {
     margin-top: var(--space-1);
     color: var(--text-secondary);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
 }

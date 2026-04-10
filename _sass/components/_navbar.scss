@@ -1,15 +1,15 @@
 // =============================================================
-// Navbar — refined, warm
+// Navbar — frosted glass, refined
 // =============================================================
 
 .navbar {
-  background-color: var(--bg-card) !important;
   border-bottom: 1px solid var(--border-color);
   padding: var(--space-3) var(--space-4);
-  transition: box-shadow var(--transition-base), background-color var(--transition-base);
+  transition: box-shadow var(--transition-base);
   z-index: 1030;
-  backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  background-color: rgba(248, 246, 241, 0.8) !important;
 
   &.scrolled {
     box-shadow: var(--shadow-navbar);
@@ -17,7 +17,7 @@
 }
 
 [data-bs-theme="dark"] .navbar {
-  background-color: rgba(28, 27, 24, 0.9) !important;
+  background-color: rgba(28, 27, 24, 0.85) !important;
 }
 
 .navbar-brand {
@@ -29,20 +29,20 @@
 
   img {
     border-radius: 0;
+    opacity: 0.85;
   }
 }
 
 .nav-link {
   color: var(--text-secondary) !important;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   padding: var(--space-2) var(--space-3) !important;
   border-radius: var(--radius-sm);
   transition: color var(--transition-fast), background-color var(--transition-fast);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
 
-  &:hover,
-  &.active {
+  &:hover {
     color: var(--accent) !important;
     background-color: var(--accent-light);
   }
@@ -55,13 +55,13 @@
   padding: var(--space-2);
   color: var(--text-muted);
   cursor: pointer;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1;
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
   justify-content: center;
 
   &:hover {
