@@ -27,7 +27,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,{% capture favicon_svg %}<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='{{ site.accent_color | default: "#1a7a6d" }}'/><text x='32' y='44' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle'>{{ site.name | truncate: 1, "" }}{{ site.name | split: " " | last | truncate: 1, "" }}</text></svg>{% endcapture %}{{ favicon_svg | uri_escape }}">
+  <link rel="icon" type="image/svg+xml" href="{{ site.url }}{{ site.baseurl }}/favicon.svg">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.url }}{{ site.baseurl }}/favicon.ico">
 
   <!-- Accent color from config -->

@@ -84,6 +84,155 @@
    # open http://localhost:4000
    ```
 
+## Detailed How-To Guide
+
+### Step 1: Fork and Clone
+
+```bash
+# Fork the repo on GitHub, then clone your fork
+git clone https://github.com/YOUR_USERNAME/YOUR_USERNAME.github.io.git
+cd YOUR_USERNAME.github.io
+```
+
+### Step 2: Install Dependencies
+
+You need Ruby and Jekyll installed. See [Jekyll's installation guide](https://jekyllrb.com/docs/installation/).
+
+```bash
+# Install Ruby gems
+bundle install
+
+# Optional: install Node.js dependencies (only needed if you want to edit JS)
+npm install
+```
+
+### Step 3: Configure Your Identity
+
+Open `_config.yml` and fill in your information. The file is organized into numbered steps:
+
+```yaml
+# STEP 1: Your Identity
+name: "Jane Smith"
+title: "Assistant Professor of Computer Science"
+institution: "Stanford University"
+email: jsmith@stanford.edu
+photo: headshot.jpg   # place your photo in images/
+```
+
+Or run the interactive setup script:
+
+```bash
+./setup.sh
+```
+
+### Step 4: Add Your Links
+
+Still in `_config.yml`, add your academic profiles. Delete any you don't use:
+
+```yaml
+# STEP 2: Your Links
+links:
+  google_scholar: "https://scholar.google.com/citations?user=YOUR_ID"
+  github: "https://github.com/yourusername"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+  cv: "papers/cv.pdf"        # place your CV in the papers/ directory
+  twitter: ""                # leave blank to hide
+  linkedin: ""
+```
+
+### Step 5: Add Your Photo
+
+Place your profile photo in the `images/` directory. Update the `photo` field in `_config.yml` to match the filename.
+
+### Step 6: Add Publications
+
+Edit `assets/ref.bib` with your BibTeX entries. The publications page is auto-generated. Example:
+
+```bibtex
+@article{smith2024,
+  author = {Smith, Jane and Doe, John},
+  title = {A Novel Approach to Machine Learning},
+  journal = {Nature},
+  year = {2024},
+  volume = {42},
+  pages = {1--10},
+  doi = {10.1234/example},
+  file = {smith2024.pdf},       % place PDF in papers/
+  abstract = {We present...}
+}
+```
+
+To bold your name in the publication list, update the scholar settings in `_config.yml`:
+
+```yaml
+scholar:
+  last_name: Smith
+  first_name: [Jane, J.]
+```
+
+Then uncomment the name-bolding line in `_layouts/bibtemplate.html`.
+
+### Step 7: Add Team Members
+
+Edit `_data/team_members.yml`:
+
+```yaml
+- name: Alice Johnson
+  photo: alice.jpg          # place in images/ or images/team/
+  info: PhD Student, started Fall 2023
+  email: alice@university.edu
+  website: https://alice.dev
+  github: https://github.com/alice
+```
+
+### Step 8: Add News
+
+Edit `_data/news.yml` (newest first):
+
+```yaml
+- date: 15 March, 2024
+  headline: "Our paper on X was accepted to NeurIPS!"
+
+- date: 1 January, 2024
+  headline: "Welcome to new PhD student Alice Johnson"
+```
+
+### Step 9: Customize Pages
+
+Each page in `_pages/` is a Markdown file. Edit the content directly:
+
+- `home.md` — your welcome text and bio
+- `research.md` — describe your research areas
+- `software.md` — list your software projects
+- `teaching.md` — list your courses
+
+To remove a page from the navbar, comment it out in `_config.yml`:
+
+```yaml
+nav_pages:
+  - name: about
+  - name: publications
+  # - name: talks        # hidden from navbar
+  - name: research
+```
+
+### Step 10: Preview and Deploy
+
+```bash
+# Preview locally
+bundle exec jekyll serve
+# Visit http://localhost:4000
+
+# When ready, push to GitHub
+git add -A
+git commit -m "My academic website"
+git push
+```
+
+Your site will be live at `https://YOUR_USERNAME.github.io` within a few minutes.
+
+---
+
 ## Customization
 
 ### _config.yml
