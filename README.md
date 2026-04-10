@@ -10,6 +10,10 @@
 </p>
 
 <p align="center">
+  <a href="https://sbryngelson.github.io/academic-website-template/"><strong>Live Demo</strong></a>
+</p>
+
+<p align="center">
   <a href="#quick-start">Quick Start</a> &middot;
   <a href="#features">Features</a> &middot;
   <a href="#customization">Customization</a> &middot;
@@ -279,7 +283,8 @@ __Using this template? Share your site and I'll add it here!__
 ## Quick Start
 
 1. **Fork** [this repository](https://github.com/sbryngelson/academic-website-template)
-2. **Install** [Jekyll](https://jekyllrb.com/docs/installation/) and run `bundle install`
+2. **Delete** `_config_demo.yml` (it's only for the demo site)
+3. **Install** [Jekyll](https://jekyllrb.com/docs/installation/) and run `bundle install`
 3. **Configure** your site:
    ```bash
    ./setup.sh          # interactive setup, or
