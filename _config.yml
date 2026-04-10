@@ -52,6 +52,9 @@ include:
   - .htaccess
   - _pages
 
+sass:
+  quiet_deps: true
+
 markdown: kramdown
 highlighter: rouge
 lsi: false
