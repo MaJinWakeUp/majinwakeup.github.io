@@ -4,18 +4,59 @@
   <img src="images/screenshots/home-hero.png" alt="Home page — light and dark mode" width="900">
 </p>
 
+<p align="center">
+  <strong>A beautiful, production-ready Jekyll website for academics and research groups.</strong><br>
+  Fork it. Fill in your info. Publish.
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick Start</a> &middot;
+  <a href="#features">Features</a> &middot;
+  <a href="#customization">Customization</a> &middot;
+  <a href="#publications">Publications</a> &middot;
+  <a href="#hosting">Hosting</a>
+</p>
+
+---
+
 ## Features
 
-* **Editorial design** — Source Serif headings, DM Sans body text, warm parchment palette with subtle noise texture
-* **Dark mode** — toggle in navbar or auto-detect from system preference, persists across visits
-* **Publication management** — auto-generated from BibTeX via Jekyll Scholar, with search/filter bar and year badges
-* **Site-wide search** — press `Cmd+K` (or click the magnifying glass) to search all pages instantly
-* **Copy BibTeX** — hover any bibtex block to reveal a one-click copy button
-* **Easy setup** — run `./setup.sh` or edit the numbered steps in `_config.yml`
-* **Responsive** — CSS Grid layouts that adapt from desktop to mobile
-* **Font Awesome 6 + Academicons** — email, Google Scholar, GitHub, ORCID, and more
-* **Frosted glass navbar** — with active page indicator and scroll shadow
-* **Smooth interactions** — animated link underlines, card hover lift, image zoom, back-to-top button
+### Design
+- **Source Serif 4 + DM Sans** typography — elegant serif headings paired with a clean geometric sans body
+- **Warm parchment palette** with subtle noise texture for depth, not flat generic whites
+- **Dark mode** — toggle in navbar, auto-detects system preference, persists across visits
+- **Frosted glass navbar** with backdrop blur, active page indicator, and scroll shadow
+- **Dynamic SVG favicon** — auto-generated from your initials + accent color
+- **Responsive** — CSS Grid layouts that adapt from desktop to tablet to mobile
+
+### Interactions
+- **Site-wide search** — press `Cmd+K` (or `Ctrl+K`) to instantly search all pages
+- **Copy BibTeX** — hover any bibtex block to reveal a one-click copy button
+- **Animated link underlines** — smooth gradient underlines that grow on hover
+- **Card hover effects** — lift + shadow on team cards, research cards, and profile photo
+- **Image zoom** — subtle scale on hover for team photos, research thumbnails, and the banner
+- **Back-to-top button** — appears on scroll, smooth scrolls up
+- **Smooth expand/collapse** — CSS transitions on publication abstracts and BibTeX entries
+
+### Publications
+- **Auto-generated from BibTeX** via Jekyll Scholar — just edit `assets/ref.bib`
+- **Search bar** — filter publications by title, author, or year
+- **Year badges** — small accent-colored pills for quick scanning
+- **Pill buttons** — PDF, DOI, arXiv, BIB, Abstract
+
+### For New Users
+- **Interactive setup script** — run `./setup.sh` to fill in your name, title, and institution
+- **4-step `_config.yml`** — numbered sections with inline comments guide you through setup
+- **Well-commented data files** — every field in `_data/*.yml` is explained with examples
+- **Smart link handling** — empty links in config are automatically hidden (no broken icons)
+
+### Technical
+- **Modular SASS** — organized into `base/`, `components/`, `layouts/`, `utilities/`
+- **Selective Bootstrap 5.3.3** — only imports the modules used, not the full bundle
+- **Single JS file** (4KB minified) — dark mode, search, toggles, scroll effects, copy button
+- **Auto-generated sitemap** via `jekyll-sitemap`
+- **Open Graph + Twitter Cards** — links look good when shared on social media
+- **MathJax 3** — LaTeX formula rendering out of the box
 
 ## Screenshots
 
@@ -30,37 +71,46 @@
 
 1. **Fork** [this repository](https://github.com/sbryngelson/academic-website-template)
 2. **Install** [Jekyll](https://jekyllrb.com/docs/installation/) and run `bundle install`
-3. **Configure** your site — either:
-   * Run `./setup.sh` for an interactive setup, or
-   * Edit `_config.yml` directly (follow Steps 1-4 in the file)
+3. **Configure** your site:
+   ```bash
+   ./setup.sh          # interactive setup, or
+   vim _config.yml     # edit Steps 1-4 directly
+   ```
 4. **Add your publications** to `assets/ref.bib`
 5. **Customize** data files in `_data/` (team members, news, awards, etc.)
-6. **Preview** with `bundle exec jekyll serve` at `localhost:4000`
+6. **Preview** your site:
+   ```bash
+   bundle exec jekyll serve
+   # open http://localhost:4000
+   ```
 
 ## Customization
 
 ### _config.yml
 
 The config file is organized into 4 numbered steps:
-1. **Your Identity** — name, title, institution, email, photo
-2. **Your Links** — Google Scholar, GitHub, ORCID, Twitter, LinkedIn, CV
-3. **Site Settings** — accent color, dark mode toggle, analytics
-4. **Your Pages** — comment out any pages you don't need
 
-### Data Files (_data/)
+| Step | Section | What to fill in |
+|------|---------|-----------------|
+| 1 | **Your Identity** | Name, title, institution, email, photo |
+| 2 | **Your Links** | Google Scholar, GitHub, ORCID, Twitter, LinkedIn, CV |
+| 3 | **Site Settings** | Accent color, dark mode toggle, analytics |
+| 4 | **Your Pages** | Comment out any pages you don't need |
+
+### Data Files
 
 | File | Purpose |
 |------|---------|
-| `team_members.yml` | Current students and postdocs |
-| `alumni.yml` | Former lab members |
-| `news.yml` | News items (3 most recent shown on home) |
-| `awards.yml` | Awards and honors |
-| `grants.yml` | Grants and funding |
-| `funders.yml` | Funder logos |
-| `people.yml` | Students and mentees |
-| `pi.yml` | Optional: detailed education for About page |
+| `_data/team_members.yml` | Current students and postdocs |
+| `_data/alumni.yml` | Former lab members |
+| `_data/news.yml` | News items (3 most recent shown on home) |
+| `_data/awards.yml` | Awards and honors |
+| `_data/grants.yml` | Grants and funding |
+| `_data/funders.yml` | Funder logos |
+| `_data/people.yml` | Students and mentees |
+| `_data/pi.yml` | Optional: detailed education for About page |
 
-Each file has inline comments explaining every field.
+Each file has inline comments explaining every field. Entries marked `# EXAMPLE` should be replaced or deleted.
 
 ### Pages
 
@@ -68,45 +118,45 @@ All pages are in `_pages/`. Edit the Markdown content directly. Pages use the `g
 
 ### Accent Color & Dark Mode
 
-Set `accent_color` in `_config.yml` to change the theme color (links, buttons, highlights). Set `dark_mode: false` to disable the dark mode toggle.
+Set `accent_color` in `_config.yml` to change the theme color across the entire site (links, buttons, highlights, favicon). Set `dark_mode: false` to disable the dark mode toggle entirely.
 
-### Advanced: CSS & JS Customization
+### CSS & JS Customization
 
-The site uses modular SASS in `_sass/` organized into base, components, layouts, and utilities. To modify:
+The site uses modular SASS in `_sass/`:
 
-1. Edit files in `_sass/` — changes are picked up by Jekyll's SASS compiler
-2. For JavaScript changes, edit `assets/js/site.js` then run `npm run build`
-3. Pre-built JS is committed, so `npm` is only needed if you modify the JS source
+```
+_sass/
+  base/          # variables, typography, reset
+  components/    # card, navbar, buttons, footer, profile, publication, search
+  layouts/       # home grid, team grid, research grid
+  utilities/     # dark mode, animations
+```
+
+For JavaScript, edit `assets/js/site.js` then run `npm run build` to minify. Pre-built JS is committed, so `npm` is only needed if you modify the source.
 
 ## Publications
 
-Publications are managed via [Jekyll Scholar](https://github.com/inukshuk/jekyll-scholar) using BibTeX. Edit `assets/ref.bib` with your references. The publications page includes:
+Publications are managed via [Jekyll Scholar](https://github.com/inukshuk/jekyll-scholar) using BibTeX. Edit `assets/ref.bib` with your references.
 
-* **Search bar** — filter by title, author, or year
-* **Year badges** — quick visual scanning
-* **Pill buttons** — PDF, DOI, arXiv, BIB, Abstract
-* **Copy to clipboard** — hover a BibTeX block to copy
-* **Smooth expand/collapse** — for abstracts and BibTeX entries
-
-Update `scholar.last_name` and `scholar.first_name` in `_config.yml` to auto-bold your name.
+Update `scholar.last_name` and `scholar.first_name` in `_config.yml` to auto-bold your name in the publication list.
 
 ## Hosting
 
 ### GitHub Pages
 
-Fork this repo as `your_username.github.io` and push. GitHub Pages will build and host it automatically. Note: Jekyll Scholar requires building locally — use the `Rakefile` or a GitHub Action.
+Fork this repo as `your_username.github.io` and push. Note: Jekyll Scholar requires building locally, so use the included `Rakefile` or set up a GitHub Action.
 
 ### Custom Domain
 
-Purchase a domain, update the `CNAME` file, and configure DNS to point to GitHub Pages. See [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+Purchase a domain, update the `CNAME` file, and configure DNS. See [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
 ### Self-Hosting
 
-Build locally with `bundle exec jekyll serve`, then upload the `_site/` directory to your server. Set `url` and `baseurl` in `_config.yml` accordingly.
+Build with `bundle exec jekyll serve`, then upload `_site/` to your server. Set `url` and `baseurl` in `_config.yml` accordingly.
 
 ## Upgrading
 
-If you're coming from the previous version of this template, see [UPGRADING.md](UPGRADING.md) for migration instructions.
+Coming from the previous version? See [UPGRADING.md](UPGRADING.md).
 
 ## Used by 200+ academics worldwide
 
@@ -315,13 +365,13 @@ If you're coming from the previous version of this template, see [UPGRADING.md](
 <a href="https://zeyuD.github.io/" target="_blank">★</a>
 <a href="https://zhoulongyu.github.io/" target="_blank">★</a>
 
-__If you are using this template, feel free to share your site with me, and I'll add it here!__
+__Using this template? Share your site and I'll add it here!__
 
 ## Alternatives
 
-* [Minimal mistakes](https://mmistakes.github.io/minimal-mistakes/)
 * [al-folio](https://github.com/alshedivat/al-folio)
 * [academicpages](https://academicpages.github.io/)
+* [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
 
 ## Acknowledgment
 
