@@ -1,14 +1,30 @@
 # A website template for academics
 
+![Home page — light mode](images/screenshots/home-light.png)
+
+![Home page — dark mode](images/screenshots/home-dark.png)
+
 ## Features
 
-* **Modern design** — Inter font, responsive CSS Grid layouts, smooth animations
-* **Dark mode** — toggle in navbar, respects system preference, persists across visits
-* **Publication management** — auto-generated from BibTeX via Jekyll Scholar, with search/filter
+* **Editorial design** — Source Serif headings, DM Sans body text, warm parchment palette with subtle noise texture
+* **Dark mode** — toggle in navbar or auto-detect from system preference, persists across visits
+* **Publication management** — auto-generated from BibTeX via Jekyll Scholar, with search/filter bar and year badges
+* **Site-wide search** — press `Cmd+K` (or click the magnifying glass) to search all pages instantly
+* **Copy BibTeX** — hover any bibtex block to reveal a one-click copy button
 * **Easy setup** — run `./setup.sh` or edit the numbered steps in `_config.yml`
-* **Responsive** — works on desktop, tablet, and mobile
-* **Fontawesome 6 + Academicons** — email, CV, Google Scholar, GitHub, ORCID, and more
-* **Pill-style action buttons** — PDF, DOI, arXiv, BIB, Abstract with smooth expand/collapse
+* **Responsive** — CSS Grid layouts that adapt from desktop to mobile
+* **Font Awesome 6 + Academicons** — email, Google Scholar, GitHub, ORCID, and more
+* **Frosted glass navbar** — with active page indicator and scroll shadow
+* **Smooth interactions** — animated link underlines, card hover lift, image zoom, back-to-top button
+
+## Screenshots
+
+| | |
+|:---:|:---:|
+| ![Publications](images/screenshots/publications.png) | ![Team](images/screenshots/team.png) |
+| Publications with search & year badges | Team page with card grid |
+| ![Search](images/screenshots/search.png) | |
+| Site-wide search (Cmd+K) | |
 
 ## Quick Start
 
@@ -16,7 +32,7 @@
 2. **Install** [Jekyll](https://jekyllrb.com/docs/installation/) and run `bundle install`
 3. **Configure** your site — either:
    * Run `./setup.sh` for an interactive setup, or
-   * Edit `_config.yml` directly (follow Steps 1–4 in the file)
+   * Edit `_config.yml` directly (follow Steps 1-4 in the file)
 4. **Add your publications** to `assets/ref.bib`
 5. **Customize** data files in `_data/` (team members, news, awards, etc.)
 6. **Preview** with `bundle exec jekyll serve` at `localhost:4000`
@@ -48,7 +64,7 @@ Each file has inline comments explaining every field.
 
 ### Pages
 
-All pages are in `_pages/`. Edit the Markdown content directly. Pages use the `gridlay` layout by default — see `_layouts/` for other options.
+All pages are in `_pages/`. Edit the Markdown content directly. Pages use the `gridlay` layout by default.
 
 ### Accent Color & Dark Mode
 
@@ -56,7 +72,7 @@ Set `accent_color` in `_config.yml` to change the theme color (links, buttons, h
 
 ### Advanced: CSS & JS Customization
 
-The site uses modular SASS in `_sass/` (base, components, layouts, utilities). To modify:
+The site uses modular SASS in `_sass/` organized into base, components, layouts, and utilities. To modify:
 
 1. Edit files in `_sass/` — changes are picked up by Jekyll's SASS compiler
 2. For JavaScript changes, edit `assets/js/site.js` then run `npm run build`
@@ -64,7 +80,13 @@ The site uses modular SASS in `_sass/` (base, components, layouts, utilities). T
 
 ## Publications
 
-Publications are managed via [Jekyll Scholar](https://github.com/inukshuk/jekyll-scholar) using BibTeX. Edit `assets/ref.bib` with your references. The publications page includes a search bar for filtering by title, author, or year.
+Publications are managed via [Jekyll Scholar](https://github.com/inukshuk/jekyll-scholar) using BibTeX. Edit `assets/ref.bib` with your references. The publications page includes:
+
+* **Search bar** — filter by title, author, or year
+* **Year badges** — quick visual scanning
+* **Pill buttons** — PDF, DOI, arXiv, BIB, Abstract
+* **Copy to clipboard** — hover a BibTeX block to copy
+* **Smooth expand/collapse** — for abstracts and BibTeX entries
 
 Update `scholar.last_name` and `scholar.first_name` in `_config.yml` to auto-bold your name.
 
@@ -88,7 +110,9 @@ If you're coming from the previous version of this template, see [UPGRADING.md](
 
 ## Users
 
-Some users:
+<details>
+<summary>70+ sites built with this template (click to expand)</summary>
+
 <a href="https://ilafly.github.io/" target="_blank">★</a>
 <a href="https://i-vesseg.github.io/" target="_blank">★</a>
 <a href="https://xfangsn.github.io/" target="_blank">★</a>
@@ -128,8 +152,6 @@ Some users:
 <a href="https://shantnuu.github.io/" target="_blank">★</a>
 <a href="https://wenbinluomath.github.io/" target="_blank">★</a>
 <a href="https://aibio-lab.github.io/" target="_blank">★</a>
-<a href="https://shantnuu.github.io/" target="_blank">★</a>
-<a href="https://wenbinluomath.github.io/" target="_blank">★</a>
 <a href="https://dartsushi.github.io/" target="_blank">★</a>
 <a href="https://efstathia-soufleri.github.io/" target="_blank">★</a>
 <a href="https://zchoffin.github.io/" target="_blank">★</a>
@@ -145,8 +167,6 @@ Some users:
 <a href="https://saharnaz.org/" target="_blank">★</a>
 <a href="https://www.isnicholas.com/" target="_blank">★</a>
 <a href="https://jojox666.github.io/" target="_blank">★</a>
-<a href="https://wenbinluomath.github.io/" target="_blank">★</a>
-<a href="https://dartsushi.github.io/" target="_blank">★</a>
 <a href="https://zhiyu7.github.io/" target="_blank">★</a>
 <a href="https://awen-li.github.io/" target="_blank">★</a>
 <a href="https://yukiiwong.github.io/" target="_blank">★</a>
@@ -158,7 +178,8 @@ Some users:
 <a href="https://yunzhe-li.top/" target="_blank">★</a>
 <a href="https://xia-hu.github.io/" target="_blank">★</a>
 <a href="https://p-bajpai.github.io/" target="_blank">★</a>
-<a href="https://zchoffin.github.io/" target="_blank">★</a>
+
+</details>
 
 __If you are using this template, feel free to share your site with me, and I'll add it here!__
 
