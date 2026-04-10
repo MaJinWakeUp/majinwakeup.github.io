@@ -3,7 +3,7 @@
 // =============================================================
 
 .pub-entry {
-  padding: var(--space-4) 0;
+  padding: var(--space-6) 0;
   border-bottom: 1px solid var(--border-color);
 
   &:last-child {
@@ -37,12 +37,11 @@
 .pub-collapse {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--transition-slow), padding var(--transition-slow);
-  padding: 0;
+  transition: max-height var(--transition-slow);
 
   &.show {
     max-height: 1000px;
-    padding: var(--space-4) 0;
+    padding-top: var(--space-3);
   }
 
   pre {
@@ -62,17 +61,18 @@
   width: 100%;
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   background-color: var(--bg-card);
   color: var(--text-primary);
-  font-size: 0.9375rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
   margin-bottom: var(--space-6);
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 
   &:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 0 3px var(--accent-light);
   }
 
   &::placeholder {

@@ -9,10 +9,11 @@
   padding: var(--space-6);
   margin-bottom: var(--space-6);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
 
   &:hover {
     box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
   }
 
   h3, h4 {
@@ -28,4 +29,12 @@
   margin-top: var(--space-6);
   margin-bottom: var(--space-6);
   box-shadow: var(--shadow-sm);
+
+  h3 {
+    margin-top: 0;
+
+    &::after {
+      display: none;
+    }
+  }
 }

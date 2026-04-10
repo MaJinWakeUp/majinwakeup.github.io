@@ -1,36 +1,60 @@
 // =============================================================
-// Typography — Inter + JetBrains Mono
+// Typography — Source Serif + DM Sans
 // =============================================================
-// Font import is in head.html via <link> tag for performance.
+// Fonts loaded via <link> in head.html.
+// Source Serif 4: elegant variable-weight serif for headings
+// DM Sans: clean geometric sans for body with personality
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-optical-sizing: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Source Serif 4', 'Georgia', 'Times New Roman', serif;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin-top: var(--space-8);
+  margin-top: var(--space-10);
   margin-bottom: var(--space-4);
+  line-height: 1.3;
 }
 
-h1 { font-size: 2.441rem; }
-h2 { font-size: 1.953rem; }
-h3 { font-size: 1.563rem; }
-h4 { font-size: 1.25rem; }
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 {
+  font-size: 1.875rem;
+  &::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background-color: var(--accent);
+    margin-top: var(--space-3);
+    border-radius: 1px;
+  }
+}
+h3 { font-size: 1.375rem; }
+h4 { font-size: 1.125rem; }
 
 p {
   color: var(--text-secondary);
   margin-bottom: var(--space-4);
 }
 
+strong, b {
+  color: var(--text-primary);
+}
+
+em, i {
+  font-style: italic;
+}
+
 code, pre {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
 }
 
 pre {
@@ -49,4 +73,11 @@ ul, ol {
 
 .text-muted {
   color: var(--text-muted) !important;
+}
+
+// Decorative thin rule
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--space-8) 0;
 }

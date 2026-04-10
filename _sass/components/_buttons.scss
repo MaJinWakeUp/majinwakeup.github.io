@@ -4,32 +4,34 @@
 
 .btn-pill {
   display: inline-block;
-  padding: 0.2rem 0.75rem;
-  font-size: 0.8125rem;
+  padding: 0.25rem 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   border-radius: var(--radius-full);
   border: 1px solid transparent;
   cursor: pointer;
   transition: all var(--transition-fast);
   text-decoration: none;
-  line-height: 1.5;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 
   &.btn-pdf {
-    background-color: #16a34a;
+    background-color: var(--accent);
     color: #fff;
-    &:hover { background-color: #15803d; color: #fff; }
+    &:hover { background-color: var(--accent-hover); color: #fff; }
   }
 
   &.btn-doi {
-    background-color: var(--accent);
-    color: #fff;
-    &:hover { background-color: var(--accent-hover); color: #fff; }
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    &:hover { opacity: 0.85; color: var(--bg-primary); }
   }
 
   &.btn-arxiv {
-    background-color: var(--accent);
+    background-color: #b31b1b;
     color: #fff;
-    &:hover { background-color: var(--accent-hover); color: #fff; }
+    &:hover { background-color: #8c1515; color: #fff; }
   }
 
   &.btn-bib,
@@ -38,27 +40,27 @@
     color: var(--text-secondary);
     border-color: var(--border-color);
     &:hover {
-      background-color: var(--bg-secondary);
-      color: var(--text-primary);
+      border-color: var(--accent);
+      color: var(--accent);
     }
   }
 
   &.btn-website {
-    background-color: #16a34a;
+    background-color: var(--accent);
     color: #fff;
-    &:hover { background-color: #15803d; color: #fff; }
+    &:hover { background-color: var(--accent-hover); color: #fff; }
   }
 
   &.btn-git {
-    background-color: #6366f1;
-    color: #fff;
-    &:hover { background-color: #4f46e5; color: #fff; }
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    &:hover { opacity: 0.85; color: var(--bg-primary); }
   }
 
   &.btn-paper {
-    background-color: #dc2626;
+    background-color: #b31b1b;
     color: #fff;
-    &:hover { background-color: #b91c1c; color: #fff; }
+    &:hover { background-color: #8c1515; color: #fff; }
   }
 }
 
@@ -66,15 +68,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: var(--radius-full);
-  color: var(--text-secondary);
+  color: var(--text-muted);
   transition: all var(--transition-fast);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 
   &:hover {
     color: var(--accent);
-    background-color: var(--bg-secondary);
+    background-color: var(--accent-light);
   }
 }
