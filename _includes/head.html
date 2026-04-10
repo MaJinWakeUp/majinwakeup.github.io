@@ -27,8 +27,8 @@
   <!-- Styles -->
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="icon" type="image/svg+xml" href="{{ site.url }}{{ site.baseurl }}/favicon.svg">
-  <link rel="shortcut icon" type="image/x-icon" href="{{ site.url }}{{ site.baseurl }}/favicon.ico">
+  <link rel="icon" href="{{ site.url }}{{ site.baseurl }}/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="{{ site.url }}{{ site.baseurl }}/favicon.ico">
 
   <!-- Accent color from config -->
   {% if site.accent_color %}
