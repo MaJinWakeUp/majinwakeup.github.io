@@ -29,7 +29,8 @@ jobs:
 
       - name: Build site
         run: |
-          if [ -f _config_demo.yml ]; then
+          # _config_demo.yml is only for the upstream demo site — ignore it in forks/copies
+          if [ -f _config_demo.yml ] && [ "$GITHUB_REPOSITORY" = "sbryngelson/academic-website-template" ]; then
             bundle exec jekyll build --config _config.yml,_config_demo.yml
           else
             bundle exec jekyll build
