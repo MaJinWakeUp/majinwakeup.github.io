@@ -31,6 +31,14 @@ permalink: /about/
 </div>
 </div>
 
+<div class="section-card">
+<h3>Work Experience</h3>
+<ul>
+<li>Algorithm Engineer, Chengdu Hsintiao Medical and Technology Company (October 2020 &#8211; July 2021)</li>
+<li>R&amp;D Engineer, Southeast Research Institute, China Unicom (August 2019 &#8211; September 2020)</li>
+</ul>
+</div>
+
 {% if site.data.grants %}
 <div class="section-card">
 <h3>Grants</h3>

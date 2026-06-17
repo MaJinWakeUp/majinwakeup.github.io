@@ -1,20 +1,35 @@
 # News items shown on the home page sidebar.
-# The 3 most recent are shown; all appear on /allnews.
+# The 3 most recent are shown there; all appear on /allnews.
 # Each entry needs: date, headline
-- date: 6 February, 1986
-  headline: "Appointed to the Rogers Commission investigating the Space Shuttle Challenger disaster"
+# Optional: type (good | bad) -> colored marker, and tag (short label text on the marker).
+# NOTE: items below are derived from real publication/service records — feel free to edit, reorder, or add.
+- date: 13 October, 2025
+  type: good
+  tag: Published
+  headline: "Our paper on few-shot hate-video detection with multi-modal LLMs appears at the ACM Workshop on Deepfake, Deception, and Disinformation Security"
 
-- date: 1 January, 1980
-  headline: "National Medal of Science awarded by President Carter"
+- date: 4 September, 2025
+  type: good
+  tag: Preprint
+  headline: "Released DisPatch, a diffusion-based defense against adversarial patches in object detection, as a preprint"
 
-- date: 21 October, 1965
-  headline: "Awarded the Nobel Prize in Physics for contributions to quantum electrodynamics"
+- date: 13 August, 2025
+  type: good
+  tag: Published
+  headline: "Our study on app account-deletion non-compliance is published at USENIX Security 2025"
 
-- date: 1 September, 1961
-  headline: "The Feynman Lectures on Physics begins publication"
+- date: 1 June, 2024
+  type: good
+  tag: Visit
+  headline: "Began a summer visit at the Singapore University of Technology and Design (SUTD)"
 
-- date: 1 June, 1959
-  headline: "Delivered 'There's Plenty of Room at the Bottom' talk at Caltech APS meeting"
+- date: 16 December, 2020
+  type: good
+  tag: Talk
+  headline: "Presented Spatial-Content Image Search in Complex Scenes at WACV 2020"
 
-- date: 1 January, 1951
-  headline: "Joined the faculty at California Institute of Technology"
+# Example of a "bad news" entry — uncomment and edit to use:
+# - date: 1 March, 2025
+#   type: bad
+#   tag: Rejected
+#   headline: "Paper on <topic> was not accepted at <venue> — revising for resubmission"
