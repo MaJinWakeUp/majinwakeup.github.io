@@ -1,11 +1,13 @@
-# Optional: detailed education and bio for the About page.
-# Basic info (name, photo, links) now lives in _config.yml.
-# Delete this file if you only need the basics.
+# Detailed education shown on the About page (long) and home sidebar (short).
+# Basic info (name, photo, links) lives in _config.yml.
 
-# EXAMPLE -- replace or delete
 - education:
-    - "(1942) Ph.D. Physics, Princeton University"
-    - "(1939) B.S. Physics, Massachusetts Institute of Technology"
+    - "(2023-2028 expected) Ph.D. Computer Science, Clemson University"
+    - "(Summer 2024) Visiting Student, Singapore University of Technology and Design"
+    - "(2021-2023) Ph.D. Computer Science, Cleveland State University (transferred out)"
+    - "(2019) M.S. Software Engineering, Xi'an Jiaotong University"
+    - "(2016) B.S. Information and Computing Science, Xi'an Jiaotong University"
   educationshort:
-    - "(1942) Ph.D. Physics, Princeton"
-    - "(1939) B.S. Physics, MIT"
+    - "(2028) Ph.D. Computer Science, Clemson"
+    - "(2019) M.S. Software Eng., XJTU"
+    - "(2016) B.S. Info. & Computing Sci., XJTU"

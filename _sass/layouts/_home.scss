@@ -115,4 +115,27 @@
     font-size: 0.875rem;
     line-height: 1.5;
   }
+
+  // Good-news / bad-news markers (set `type: good` or `type: bad` in _data/news.yml)
+  .news-tag {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    margin-bottom: var(--space-1);
+    font-family: 'DM Sans', sans-serif;
+
+    &.good {
+      color: #1a7a4a;
+      background: rgba(26, 122, 74, 0.12);
+    }
+
+    &.bad {
+      color: #b22b2b;
+      background: rgba(178, 43, 43, 0.12);
+    }
+  }
 }

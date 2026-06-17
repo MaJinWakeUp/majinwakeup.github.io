@@ -9,31 +9,31 @@ permalink: /
 <p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
 
 <div class="chip-container" markdown="0">
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Electrodynamics</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Path Integrals</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Superfluidity</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Parton Model</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Computing</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Nanotechnology</a>
+<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Trustworthy AI</a>
+<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">AI for Security</a>
+<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Adversarial Attacks &amp; Defenses</a>
+<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">LLMs for Cyber Harassment Detection</a>
+<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Biometric Authentication</a>
 </div>
 
-Theoretical physics is a branch of physics that focuses on the development of mathematical models and theories to understand and explain natural phenomena.
-It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
-Research in theoretical physics helps us to make predictions about how the universe works and to test these predictions through experiments.
+My research centers on the **trustworthiness of AI** and **AI for security** — building and stress-testing machine-learning systems to understand where they fail and how to make them dependable.
 
+<!-- Looking for an internship? Uncomment and update this callout when you are on the market.
 <div class="callout callout-success" markdown="0">
-<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Nobel Prize in Physics, 1965</div>
-<p>Awarded the Nobel Prize jointly with Julian Schwinger and Shin'ichiro Tomonaga for fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles.</p>
+<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Looking for internship &mdash; Summer 2026</div>
+<p>I am actively seeking internship opportunities for Summer 2026. Feel free to reach out via <a href="mailto:{{ site.email }}">email</a> or take a look at my <a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}">CV</a>.</p>
 </div>
+-->
 
+<!-- Banner image from the template demo — drop a banner.jpg in images/ to use this, otherwise leave commented.
 <div class="banner-frame" markdown="0">
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Feynman diagrams" loading="lazy">
-<div class="banner-caption">Examples of Feynman diagrams. Feynman R., <em>The theory of positrons. Phys. Rev.</em> (1949)</div>
+<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Banner" loading="lazy">
+<div class="banner-caption">Caption goes here.</div>
 </div>
+-->
 
 ### About me
 
-I am a physicist working in the field of quantum mechanics and quantum electrodynamics.
-I received my undergraduate degree in physics from the Massachusetts Institute of Technology (MIT) in 1939 and went on to earn my PhD from Princeton University in 1942.
-After completing my doctoral studies, I worked on the Manhattan Project, where I helped develop the first atomic bombs.
-After the war, I returned to academia, holding teaching and research positions at Cornell and now at the California Institute of Technology.
+I am currently a third-year Ph.D. student in the School of Computing at Clemson University.
+My interests span adversarial attacks and defenses of perception systems, cyber harassment detection using large language models, and ML-enabled biometric authentication.
+Before Clemson, I earned my M.S. in Software Engineering and B.S. in Information and Computing Science at Xi'an Jiaotong University, and worked as an engineer in industry.
