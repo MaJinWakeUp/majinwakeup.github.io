@@ -36,12 +36,12 @@ analytics:
 # STEP 4: Choose Your Pages (comment out any you don't need)
 # ============================================================
 nav_pages:
-  - name: about
   - name: publications
   - name: teaching
   - name: service
   # Pages below are kept in the repo but hidden from the nav for now.
   # Uncomment any you want to show later (their page files still exist under _pages/).
+  # - name: about    # merged into the home page; uncomment to show a separate About tab
   # - name: talks
   # - name: research
   # - name: software
