@@ -3,6 +3,11 @@
 # Each entry needs: date, headline
 # Optional: type (good | bad) -> colored marker, and tag (short label text on the marker).
 # NOTE: items below are derived from real publication/service records — feel free to edit, reorder, or add.
+- date: 18 July, 2026
+  type: bad
+  tag: Rejected
+  headline: "One paper rejected at EMNLP 2026"
+
 - date: 1 June, 2026
   type: good
   tag: Service
@@ -11,7 +16,7 @@
 - date: 1 May, 2026
   type: good
   tag: Service
-  headline: "Serving as a PC member for ACM MM 2026"
+  headline: "Serving as a PC member for ACM'MM 2026"
 
 - date: 12 November, 2025
   type: good
