@@ -16,7 +16,7 @@ permalink: /
 <a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Biometric Authentication</a>
 </div>
 
-My research centers on the **trustworthiness of AI** and **AI for security** — building and stress-testing machine-learning systems to understand where they fail and how to make them dependable.
+Can we truly trust the AI systems we increasingly rely on? The gap between what AI can do and how easily it can be fooled or misused is what inspires my work toward intelligent systems that are **secure, reliable, and worthy of trust**.
 
 <!-- Looking for an internship? Uncomment and update this callout when you are on the market.
 <div class="callout callout-success" markdown="0">
