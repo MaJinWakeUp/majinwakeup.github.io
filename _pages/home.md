@@ -37,3 +37,20 @@ My research centers on the **trustworthiness of AI** and **AI for security** —
 I am currently a third-year Ph.D. student in the School of Computing at Clemson University.
 My interests span adversarial attacks and defenses of perception systems, cyber harassment detection using large language models, and ML-enabled biometric authentication.
 Before Clemson, I earned my M.S. in Software Engineering and B.S. in Information and Computing Science at Xi'an Jiaotong University, and worked as an engineer in industry.
+
+<div class="section-card" markdown="0">
+<h3>Education</h3>
+<ul>
+{% for education in site.data.pi[0].education %}
+<li>{{ education | replace: "-","&#8211;" }}</li>
+{% endfor %}
+</ul>
+</div>
+
+<div class="section-card" markdown="0">
+<h3>Work Experience</h3>
+<ul>
+<li>Algorithm Engineer, Chengdu Hsintiao Medical and Technology Company (October 2020 &#8211; July 2021)</li>
+<li>R&amp;D Engineer, Southeast Research Institute, China Unicom (August 2019 &#8211; September 2020)</li>
+</ul>
+</div>
