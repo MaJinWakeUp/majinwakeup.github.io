@@ -3,30 +3,46 @@
 # Each entry needs: date, headline
 # Optional: type (good | bad) -> colored marker, and tag (short label text on the marker).
 # NOTE: items below are derived from real publication/service records — feel free to edit, reorder, or add.
+- date: 1 June, 2026
+  type: good
+  tag: Service
+  headline: "Serving as a PC member for ICWSM 2026"
+
+- date: 1 May, 2026
+  type: good
+  tag: Service
+  headline: "Serving as a PC member for ACM MM 2026"
+
+- date: 12 November, 2025
+  type: good
+  tag: Accepted
+  headline: "RAG-based medical LVLM study accepted to IEEE ICDMW 2025"
+
 - date: 13 October, 2025
   type: good
-  tag: Published
-  headline: "Our paper on few-shot hate-video detection with multi-modal LLMs appears at the ACM Workshop on Deepfake, Deception, and Disinformation Security"
+  tag: Accepted
+  headline: "Hate-video paper accepted to the CCS Workshop D3"
+
+- date: 1 October, 2025
+  type: good
+  tag: Accepted
+  headline: "Asphalt-art perception study accepted to the TRB Annual Meeting"
 
 - date: 4 September, 2025
   type: good
   tag: Preprint
-  headline: "Released DisPatch, a diffusion-based defense against adversarial patches in object detection, as a preprint"
+  headline: "Released DisPatch as a preprint"
 
 - date: 13 August, 2025
   type: good
-  tag: Published
-  headline: "Our study on app account-deletion non-compliance is published at USENIX Security 2025"
+  tag: Accepted
+  headline: "\"No Way to Sign Out?\" accepted by USENIX Security"
+
 
 - date: 1 June, 2024
   type: good
   tag: Visit
-  headline: "Began a summer visit at the Singapore University of Technology and Design (SUTD)"
-
-- date: 16 December, 2020
-  type: good
-  tag: Talk
-  headline: "Presented Spatial-Content Image Search in Complex Scenes at WACV 2020"
+  headline: "Started a summer visit at SUTD"
 
 # Example of a "bad news" entry — uncomment and edit to use:
 # - date: 1 March, 2025
