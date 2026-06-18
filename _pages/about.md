@@ -20,15 +20,23 @@ permalink: /about/
 {% if site.links.github and site.links.github != "" %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
 {% if site.links.researchgate and site.links.researchgate != "" %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
 </div>
-{% if site.data.pi[0].education %}
-<ul style="margin-top: var(--space-4);">
+</div>
+</div>
+</div>
+
+<div class="section-card" style="border-left: 3px solid var(--accent); padding-left: var(--space-6); background-color: var(--bg-secondary);">
+  <p style="font-style: italic; color: var(--text-primary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">
+    "This is my personal 'long west journey.' Much like Xuanzang’s legendary pilgrimage to the West, my trek through academia has been filled with trials, unexpected hurdles (mostly paper rejections and dead-end ideas), and a persistent quest for the sacred scrolls of knowledge (or at least, a PhD)."
+  </p>
+</div>
+
+<div class="section-card">
+<h3>Education</h3>
+<ul>
 {% for education in site.data.pi[0].education %}
 <li>{{ education | replace: "-","&#8211;" }}</li>
 {% endfor %}
 </ul>
-{% endif %}
-</div>
-</div>
 </div>
 
 <div class="section-card">
