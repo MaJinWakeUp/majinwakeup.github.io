@@ -93,86 +93,156 @@
   }
 }
 
-// Banner image — editorial frame with caption
-.banner-frame {
+// Dynamic Badge Gallery Banner — Two-Line Marquee
+.badge-banner-container {
   position: relative;
-  margin: var(--space-8) 0;
-  border-radius: var(--radius-xl);
+  margin: var(--space-6) 0;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-card);
-  transition: box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s ease;
+  padding: var(--space-3) 0; // vertical headroom so hover-lift isn't clipped
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  // Soft fade so badges dissolve into the page at both edges
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
 
-  img {
-    width: 100%;
-    display: block;
-    border-radius: 0;
-    transition: filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+.marquee-row {
+  // No clipping here so the hover lift isn't cut off; the container clips horizontally
+  overflow: visible;
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  &:nth-child(2) .marquee-track {
+    animation-duration: 72s; // Staggered speed so row 1 and row 2 do not align
   }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 58s linear infinite;
 
   &:hover {
-    box-shadow: var(--shadow-lg), 0 0 20px var(--accent-light);
-    border-color: var(--accent);
-
-    img {
-      filter: brightness(1.04) contrast(1.02);
-    }
-  }
-
-  .banner-caption {
-    padding: var(--space-3) var(--space-4);
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-style: italic;
-    border-top: 1px solid var(--border-color);
-    background-color: var(--bg-secondary);
+    animation-play-state: paused;
   }
 }
 
-.banner-dynamic {
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      110deg,
-      transparent 0%,
-      transparent 40%,
-      rgba(255, 255, 255, 0.22) 50%,
-      transparent 60%,
-      transparent 100%
-    );
-    mix-blend-mode: overlay;
-    opacity: 0.6;
-    transform: translateX(-100%) skewX(-15deg);
-    animation: banner-sheen 12s ease-in-out infinite;
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  padding-right: var(--space-10); // Match gap for seamless loop
+}
+
+.badge-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: auto;
+  min-width: 64px;
+  padding: 0 var(--space-2);
+  border: none;
+  background: none;
+  background-image: none !important; // override global link style
+  cursor: default;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    transform: translateY(-4px) scale(1.06);
   }
 }
 
-@keyframes banner-sheen {
+.badge-logo {
+  max-width: 150px;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  // Low-key monochrome by default — grayscale keeps each logo's shape readable
+  filter: grayscale(1);
+  opacity: 0.78;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+
+  // Reveal the badge's true colors on hover so it's clear what it is
+  .badge-card:hover & {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+}
+
+// Dark mode: lift the darker logos so they stay visible on the dark backdrop
+[data-bs-theme="dark"] .badge-logo {
+  filter: grayscale(1) brightness(1.9) contrast(0.95);
+  opacity: 0.8;
+
+  .badge-card:hover & {
+    filter: grayscale(0) brightness(1);
+    opacity: 1;
+  }
+}
+
+.badge-fa-icon {
+  font-size: 1.6rem;
+  color: var(--badge-silver);
+  transition: color 0.4s ease, transform 0.4s ease;
+
+  .badge-card:hover & {
+    color: var(--badge-color, var(--badge-silver-strong));
+    transform: scale(1.08);
+  }
+}
+
+@keyframes marquee-scroll {
   0% {
-    transform: translateX(-100%) skewX(-15deg);
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.6;
-  }
-  20% {
-    transform: translateX(100%) skewX(-15deg);
-    opacity: 0;
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(100%) skewX(-15deg);
-    opacity: 0;
+    transform: translateX(-50%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .banner-dynamic::after {
-    animation: none;
-    transform: none;
+  // No scrolling — lay every badge out in a static, centered, wrapped grid
+  // so nothing is clipped off-screen (especially the long second row).
+  .badge-banner-container {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+    width: 100%;
+  }
+  .marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: var(--space-4) var(--space-8);
+    padding-right: 0;
+
+    // Hide the duplicate group that only exists for the seamless loop
+    &[aria-hidden="true"] {
+      display: none;
+    }
+  }
+  .badge-card {
+    animation: none !important;
+    transform: none !important;
   }
 }
 
