@@ -217,9 +217,28 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  // No scrolling — lay every badge out in a static, centered, wrapped grid
+  // so nothing is clipped off-screen (especially the long second row).
+  .badge-banner-container {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
   .marquee-track {
     animation: none !important;
     transform: none !important;
+    width: 100%;
+  }
+  .marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: var(--space-4) var(--space-8);
+    padding-right: 0;
+
+    // Hide the duplicate group that only exists for the seamless loop
+    &[aria-hidden="true"] {
+      display: none;
+    }
   }
   .badge-card {
     animation: none !important;
