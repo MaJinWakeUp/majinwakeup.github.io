@@ -16,6 +16,7 @@ row1:
   - name: "SUTD Singapore"
     image: "images/badges/sutd.png"
     color: "#D0104C"
+    class: "sutd-badge"
 
 row2:
   # color = the tint each icon fades to on hover

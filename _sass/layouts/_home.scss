@@ -196,6 +196,25 @@
   }
 }
 
+// SUTD is a pure-black monochrome mark. At rest, match the muted gray tone
+// of the other logos; on hover resolve to solid black (light) / white (dark).
+.sutd-badge .badge-logo {
+  filter: invert(0.5); // black -> muted gray, like the rest at rest
+  opacity: 0.78;
+}
+.sutd-badge:hover .badge-logo {
+  filter: invert(0); // solid black
+  opacity: 1;
+}
+[data-bs-theme="dark"] .sutd-badge .badge-logo {
+  filter: invert(0.7); // lifted light gray to match the others in dark mode
+  opacity: 0.8;
+}
+[data-bs-theme="dark"] .sutd-badge:hover .badge-logo {
+  filter: invert(1); // solid white
+  opacity: 1;
+}
+
 .badge-fa-icon {
   font-size: 1.6rem;
   color: var(--badge-silver);
