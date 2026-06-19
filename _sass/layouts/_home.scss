@@ -196,6 +196,17 @@
   }
 }
 
+// SUTD is a pure-black monochrome mark: black in light mode (default
+// grayscale leaves it black), inverted to white in dark mode.
+[data-bs-theme="dark"] .sutd-badge .badge-logo {
+  filter: invert(1);
+  opacity: 0.85;
+}
+[data-bs-theme="dark"] .sutd-badge:hover .badge-logo {
+  filter: invert(1);
+  opacity: 1;
+}
+
 .badge-fa-icon {
   font-size: 1.6rem;
   color: var(--badge-silver);
