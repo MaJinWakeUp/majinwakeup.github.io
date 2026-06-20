@@ -33,6 +33,18 @@
     });
   }
 
+  // Follow the OS theme live, unless the visitor has made a manual choice
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onSchemeChange = function (e) {
+      if (localStorage.getItem('theme')) return; // manual choice wins
+      document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
+      updateIcon();
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onSchemeChange);
+    else if (mq.addListener) mq.addListener(onSchemeChange); // older browsers
+  }
+
   // ----- Publication Expand/Collapse -----
 
   document.addEventListener('click', function (e) {
