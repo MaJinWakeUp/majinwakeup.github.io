@@ -9,27 +9,13 @@
   // ----- Dark Mode Toggle -----
 
   var toggle = document.getElementById('darkModeToggle');
-  var icon = document.getElementById('themeIcon');
-
-  function updateIcon() {
-    if (!icon) return;
-    var theme = document.documentElement.getAttribute('data-bs-theme');
-    if (theme === 'dark') {
-      icon.className = 'fa-solid fa-moon';
-    } else {
-      icon.className = 'fa-solid fa-sun';
-    }
-  }
 
   if (toggle) {
-    updateIcon();
-
     toggle.addEventListener('click', function () {
       var current = document.documentElement.getAttribute('data-bs-theme');
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-bs-theme', next);
       localStorage.setItem('theme', next);
-      updateIcon();
     });
 
     // Follow the OS theme live, unless the visitor has made a manual choice.
@@ -40,7 +26,6 @@
       var onSchemeChange = function (e) {
         if (localStorage.getItem('theme')) return; // manual choice wins
         document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
-        updateIcon();
       };
       if (mq.addEventListener) mq.addEventListener('change', onSchemeChange);
       else if (mq.addListener) mq.addListener(onSchemeChange); // older browsers

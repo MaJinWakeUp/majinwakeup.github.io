@@ -1,7 +1,10 @@
 <nav class="navbar sticky-top navbar-expand-md">
   <div class="container" style="max-width: var(--container-max);">
     <a class="navbar-brand" href="{{ site.baseurl }}/">
-      <span class="brand-emoji" role="img" aria-label="Jin Ma" style="margin-right: var(--space-2); font-size: 1.25rem; line-height: 1; vertical-align: -0.1em;">🏇</span>
+      <svg class="d-inline-block align-text-top" width="24" height="24" viewBox="0 0 64 64" style="border-radius: 5px; margin-right: var(--space-2); margin-top: 1px;" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="{{ site.accent_color | default: '#1a7a6d' }}"/>
+        <text x="32" y="44" font-family="Georgia,serif" font-size="30" font-weight="700" fill="white" text-anchor="middle">{{ site.name | truncate: 1, "" | escape }}{{ site.name | split: " " | last | truncate: 1, "" | escape }}</text>
+      </svg>
       {{ site.name | escape }}
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,13 +22,19 @@
         </li>
         {% endfor %}
       </ul>
-      <div class="d-flex align-items-center" style="gap: var(--space-2);">
+      <div class="navbar-actions d-flex align-items-center" style="gap: var(--space-2);">
         <button class="search-toggle" id="searchToggle" aria-label="Search site">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         {% if site.dark_mode %}
-        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
-          <i class="fa-solid fa-sun" id="themeIcon"></i>
+        <button class="theme-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle-thumb"></span>
+          <span class="theme-toggle-icon theme-toggle-light" aria-hidden="true">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+          <span class="theme-toggle-icon theme-toggle-dark" aria-hidden="true">
+            <i class="fa-solid fa-moon"></i>
+          </span>
         </button>
         {% endif %}
       </div>
