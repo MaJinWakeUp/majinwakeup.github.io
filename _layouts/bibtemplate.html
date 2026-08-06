@@ -10,11 +10,10 @@
   {% assign bibtest = false %}
   {% if entry.file %}
   {% assign bibfile = "/papers/" | append: entry.file %}
-  {% for file in site.static_files %}
-    {% if file.path contains bibfile %}
-     {% assign bibtest = true %}
-    {% endif %}
-  {% endfor %}
+  {% assign search_results = site.static_files | where_exp: "item", "item.path contains bibfile" %}
+  {% if search_results.size > 0 %}
+    {% assign bibtest = true %}
+  {% endif %}
   {% endif %}
 
   <div class="pub-actions">
