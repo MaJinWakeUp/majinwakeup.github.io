@@ -24,6 +24,11 @@ task :publish => [:generate] do
     abort "Could not determine remote URL. Set GIT_REMOTE_URL or ensure git config remote.origin.url is set."
   end
 
+  # Resolve relative filesystem remotes to absolute paths before changing directories
+  if remote_url.start_with?(".", "/")
+    remote_url = File.expand_path(remote_url)
+  end
+
   Dir.mktmpdir do |tmp|
     cp_r "_site/.", tmp
 
