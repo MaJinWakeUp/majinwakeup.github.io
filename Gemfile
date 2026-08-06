@@ -11,3 +11,7 @@ gem "csv"
 gem "base64"
 gem "bigdecimal"
 gem "observer"
+
+group :test do
+  gem "rspec"
+end
