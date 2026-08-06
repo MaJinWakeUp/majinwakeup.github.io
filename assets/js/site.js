@@ -241,7 +241,11 @@
     });
 
     if (matches.length === 0) {
-      searchResultsEl.innerHTML = '<div class="search-no-results">No results for "' + query + '"</div>';
+      searchResultsEl.innerHTML = '';
+      var noResultsEl = document.createElement('div');
+      noResultsEl.className = 'search-no-results';
+      noResultsEl.textContent = 'No results for "' + query + '"';
+      searchResultsEl.appendChild(noResultsEl);
       return;
     }
 
