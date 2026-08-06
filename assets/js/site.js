@@ -49,17 +49,23 @@
 
   var searchInput = document.getElementById('pubSearch');
   if (searchInput) {
+    var entriesArr = Array.from(document.querySelectorAll('[data-pub-searchable]'));
+    var entriesData = entriesArr.map(function (entry) {
+      return {
+        element: entry,
+        text: entry.textContent.toLowerCase()
+      };
+    });
+
     searchInput.addEventListener('input', function () {
       var query = this.value.toLowerCase().trim();
-      var entries = document.querySelectorAll('[data-pub-searchable]');
 
-      entries.forEach(function (entry) {
+      entriesData.forEach(function (data) {
         if (!query) {
-          entry.style.display = '';
+          data.element.style.display = '';
           return;
         }
-        var text = entry.textContent.toLowerCase();
-        entry.style.display = text.includes(query) ? '' : 'none';
+        data.element.style.display = data.text.includes(query) ? '' : 'none';
       });
     });
   }
@@ -241,7 +247,11 @@
     });
 
     if (matches.length === 0) {
-      searchResultsEl.innerHTML = '<div class="search-no-results">No results for "' + query + '"</div>';
+      searchResultsEl.innerHTML = '';
+      var noResultsEl = document.createElement('div');
+      noResultsEl.className = 'search-no-results';
+      noResultsEl.textContent = 'No results for "' + query + '"';
+      searchResultsEl.appendChild(noResultsEl);
       return;
     }
 
