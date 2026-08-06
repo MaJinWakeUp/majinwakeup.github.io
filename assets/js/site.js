@@ -49,9 +49,9 @@
 
   var searchInput = document.getElementById('pubSearch');
   if (searchInput) {
+    var entries = document.querySelectorAll('[data-pub-searchable]');
     searchInput.addEventListener('input', function () {
       var query = this.value.toLowerCase().trim();
-      var entries = document.querySelectorAll('[data-pub-searchable]');
 
       entries.forEach(function (entry) {
         if (!query) {
