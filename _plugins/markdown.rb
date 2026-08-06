@@ -13,8 +13,8 @@ module Jekyll
     end
     require "kramdown"
     def render(context)
-      base_dir = File.expand_path(File.join(Dir.pwd, "_includes"))
-      target_path = File.expand_path(File.join(base_dir, @text))
+      base_dir = File.realpath(File.join(Dir.pwd, "_includes"))
+      target_path = File.realpath(File.join(base_dir, @text))
 
       if !target_path.start_with?(base_dir + File::SEPARATOR)
         raise SecurityError, "Path traversal detected: #{@text}"
