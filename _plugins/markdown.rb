@@ -13,7 +13,14 @@ module Jekyll
     end
     require "kramdown"
     def render(context)
-      tmpl = File.read File.join Dir.pwd, "_includes", @text
+      base_dir = File.expand_path(File.join(Dir.pwd, "_includes"))
+      target_path = File.expand_path(File.join(base_dir, @text))
+
+      if !target_path.start_with?(base_dir + File::SEPARATOR)
+        raise SecurityError, "Path traversal detected: #{@text}"
+      end
+
+      tmpl = File.read target_path
       site = context.registers[:site]
       tmpl = (Liquid::Template.parse tmpl).render site.site_payload
       html = Kramdown::Document.new(tmpl).to_html
