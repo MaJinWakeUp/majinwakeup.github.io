@@ -58,15 +58,15 @@
     });
 
     searchInput.addEventListener('input', function () {
-const query = this.value.toLowerCase().trim();
+      const query = this.value.toLowerCase().trim();
 
-entriesData.forEach(function (data) {
-  if (!query) {
-    data.element.style.display = '';
-    return;
-  }
-  data.element.style.display = data.text.includes(query) ? '' : 'none';
-});
+      entriesData.forEach(function (data) {
+        if (!query) {
+          data.element.style.display = '';
+          return;
+        }
+        data.element.style.display = data.text.includes(query) ? '' : 'none';
+      });
     });
   }
 

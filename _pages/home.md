@@ -18,12 +18,11 @@ permalink: /
 
 Can we truly trust the AI systems we increasingly rely on? The gap between what AI can do and how easily it can be fooled or misused is what inspires my work toward intelligent systems that are **secure, reliable, and worthy of trust**.
 
-<!-- Looking for an internship? Uncomment and update this callout when you are on the market.
 <div class="callout callout-success" markdown="0">
-<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Looking for internship &mdash; Summer 2026</div>
-<p>I am actively seeking internship opportunities for Summer 2026. Feel free to reach out via <a href="mailto:{{ site.email }}">email</a> or take a look at my <a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}">CV</a>.</p>
+<div class="callout-title">Looking for internship &mdash; Summer 2027</div>
+<!-- <i class="fa-solid fa-award callout-icon"></i> -->
+<p>I am actively seeking internship opportunities for Summer 2027. Feel free to reach out via <a href="mailto:{{ site.email }}">email</a> or take a look at my <a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}">CV</a>.</p>
 </div>
--->
 
 <blockquote class="hawking-quote" markdown="0">
   <p class="quote-text">“Things were going fairly well. I had become engaged to a very nice girl, Jane Wilde. But in order to get married, I needed a job, and in order to get a job, I needed a PhD.”</p>
@@ -93,6 +92,6 @@ Can we truly trust the AI systems we increasingly rely on? The gap between what 
 
 ### About me
 
-I am currently a third-year Ph.D. student in the School of Computing at Clemson University.
+I am currently a fourth-year Ph.D. student in the School of Computing at Clemson University.
 My interests span adversarial attacks and defenses of perception systems, cyber harassment detection using large language models, and ML-enabled biometric authentication.
 Before Clemson, I earned my M.S. in Software Engineering and B.S. in Information and Computing Science at Xi'an Jiaotong University, and worked as an engineer in industry.
