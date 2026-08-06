@@ -2,12 +2,16 @@
   "private": true,
   "scripts": {
     "build:js": "esbuild assets/js/site.js --bundle --minify --outfile=assets/js/site.min.js",
-    "build": "npm run build:js"
+    "build": "npm run build:js",
+    "test": "jest"
   },
   "dependencies": {
     "bootstrap": "5.3.3"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.1.3"
   }
 }
