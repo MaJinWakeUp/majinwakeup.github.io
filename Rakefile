@@ -19,6 +19,16 @@ end
 
 desc "Generate and publish blog to gh-pages"
 task :publish => [:generate] do
+  remote_url = ENV["GIT_REMOTE_URL"] || `git config --get remote.origin.url`.strip
+  if remote_url.empty?
+    abort "Could not determine remote URL. Set GIT_REMOTE_URL or ensure git config remote.origin.url is set."
+  end
+
+  # Resolve relative filesystem remotes to absolute paths before changing directories
+  unless remote_url.match?(%r{\A(?:[a-zA-Z][a-zA-Z0-9+.-]*://|[\w.-]+@[\w.-]+:)})
+    remote_url = File.expand_path(remote_url)
+  end
+
   Dir.mktmpdir do |tmp|
     cp_r "_site/.", tmp
 
@@ -28,9 +38,9 @@ task :publish => [:generate] do
     system "git init"
     system "git add ."
     message = "Site updated at #{Time.now.utc}"
-    system "git commit -m #{message.inspect}"
-    system "git remote add origin git@github.com:sbryngelson/bryngelson_personal_template.git"
-    system "git push origin master --force"
+    system "git", "commit", "-m", message
+    system "git", "remote", "add", "origin", remote_url
+    system "git", "push", "origin", "master", "--force"
 
     Dir.chdir pwd
   end

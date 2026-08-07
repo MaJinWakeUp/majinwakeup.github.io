@@ -8,12 +8,12 @@
 
   // ----- Dark Mode Toggle -----
 
-  var toggle = document.getElementById('darkModeToggle');
+  const toggle = document.getElementById('darkModeToggle');
 
   if (toggle) {
     toggle.addEventListener('click', function () {
-      var current = document.documentElement.getAttribute('data-bs-theme');
-      var next = current === 'dark' ? 'light' : 'dark';
+      const current = document.documentElement.getAttribute('data-bs-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-bs-theme', next);
       localStorage.setItem('theme', next);
     });
@@ -22,8 +22,8 @@
     // Inside the toggle guard so it never runs when dark mode is disabled
     // (no toggle, and head.html applies no theme).
     if (window.matchMedia) {
-      var mq = window.matchMedia('(prefers-color-scheme: dark)');
-      var onSchemeChange = function (e) {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      const onSchemeChange = function (e) {
         if (localStorage.getItem('theme')) return; // manual choice wins
         document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
       };
@@ -35,11 +35,11 @@
   // ----- Publication Expand/Collapse -----
 
   document.addEventListener('click', function (e) {
-    var button = e.target.closest('[data-toggle-target]');
+    const button = e.target.closest('[data-toggle-target]');
     if (!button) return;
 
-    var targetId = button.getAttribute('data-toggle-target');
-    var target = document.getElementById(targetId);
+    const targetId = button.getAttribute('data-toggle-target');
+    const target = document.getElementById(targetId);
     if (!target) return;
 
     target.classList.toggle('show');
@@ -47,10 +47,10 @@
 
   // ----- Publication Search/Filter -----
 
-  var searchInput = document.getElementById('pubSearch');
+  const searchInput = document.getElementById('pubSearch');
   if (searchInput) {
-    var entriesArr = Array.from(document.querySelectorAll('[data-pub-searchable]'));
-    var entriesData = entriesArr.map(function (entry) {
+    const entriesArr = Array.from(document.querySelectorAll('[data-pub-searchable]'));
+    const entriesData = entriesArr.map(function (entry) {
       return {
         element: entry,
         text: entry.textContent.toLowerCase()
@@ -58,7 +58,7 @@
     });
 
     searchInput.addEventListener('input', function () {
-      var query = this.value.toLowerCase().trim();
+      const query = this.value.toLowerCase().trim();
 
       entriesData.forEach(function (data) {
         if (!query) {
@@ -76,14 +76,14 @@
     // Only add copy to bibtex blocks (id starts with "bib-")
     if (!collapse.id || !collapse.id.startsWith('bib-')) return;
 
-    var pre = collapse.querySelector('pre');
+    const pre = collapse.querySelector('pre');
     if (!pre) return;
 
-    var wrapper = document.createElement('div');
+    const wrapper = document.createElement('div');
     wrapper.className = 'copy-wrapper';
     wrapper.style.position = 'relative';
 
-    var btn = document.createElement('button');
+    const btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
     btn.title = 'Copy to clipboard';
@@ -107,11 +107,11 @@
   // ----- Publication Year Badges -----
 
   document.querySelectorAll('.pub-entry').forEach(function (entry) {
-    var text = entry.textContent;
+    const text = entry.textContent;
     // Match a 4-digit year in parentheses, common in citation format
-    var match = text.match(/\((\d{4})\)/);
+    const match = text.match(/\((\d{4})\)/);
     if (match) {
-      var badge = document.createElement('span');
+      const badge = document.createElement('span');
       badge.className = 'year-badge';
       badge.textContent = match[1];
       entry.insertBefore(badge, entry.firstChild);
@@ -120,7 +120,7 @@
 
   // ----- Back to Top Button -----
 
-  var topBtn = document.createElement('button');
+  const topBtn = document.createElement('button');
   topBtn.className = 'back-to-top';
   topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
   topBtn.setAttribute('aria-label', 'Back to top');
@@ -140,7 +140,7 @@
 
   // ----- Navbar Scroll Shadow -----
 
-  var navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener('scroll', function () {
       if (window.scrollY > 10) {
@@ -153,9 +153,9 @@
 
   // ----- Fade-in on Scroll -----
 
-  var fadeElements = document.querySelectorAll('.fade-in-section');
+  const fadeElements = document.querySelectorAll('.fade-in-section');
   if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
+    const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -178,11 +178,11 @@
 
   // ----- Site Search -----
 
-  var searchToggleBtn = document.getElementById('searchToggle');
-  var searchOverlay = document.getElementById('searchOverlay');
-  var searchInputEl = document.getElementById('searchInput');
-  var searchResultsEl = document.getElementById('searchResults');
-  var searchData = null;
+  const searchToggleBtn = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchInputEl = document.getElementById('searchInput');
+  const searchResultsEl = document.getElementById('searchResults');
+  let searchData = null;
 
   function openSearch() {
     if (!searchOverlay) return;
@@ -240,8 +240,8 @@
       searchResultsEl.innerHTML = '';
       return;
     }
-    var q = query.toLowerCase();
-    var matches = data.filter(function (item) {
+    const q = query.toLowerCase();
+    const matches = data.filter(function (item) {
       return item.title.toLowerCase().includes(q) ||
              item.content.toLowerCase().includes(q);
     });
@@ -256,7 +256,7 @@
     }
 
     searchResultsEl.innerHTML = matches.map(function (item) {
-      var snippet = item.content.substring(0, 150).trim() + '...';
+      const snippet = item.content.substring(0, 150).trim() + '...';
       return '<a href="' + item.url + '" class="search-result-item">' +
         '<div class="search-result-title">' + item.title + '</div>' +
         '<div class="search-result-snippet">' + snippet + '</div>' +
@@ -265,9 +265,9 @@
   }
 
   if (searchInputEl) {
-    var debounceTimer;
+    let debounceTimer;
     searchInputEl.addEventListener('input', function () {
-      var query = this.value.trim();
+      const query = this.value.trim();
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(function () {
         loadSearchData(function (data) {

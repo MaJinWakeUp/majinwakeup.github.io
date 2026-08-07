@@ -28,12 +28,15 @@ read -rp "Your email: " EMAIL
 echo ""
 echo "Updating _config.yml..."
 
-# Use sed to replace placeholder values
-sed -i.bak "s/^name: .*/name: \"$NAME\"/" _config.yml
-sed -i.bak "s/^title: .*/title: \"$TITLE\"/" _config.yml
-sed -i.bak "s/^institution: .*/institution: \"$INSTITUTION\"/" _config.yml
-sed -i.bak "s/^email: .*/email: $EMAIL/" _config.yml
-rm -f _config.yml.bak
+# Use awk to safely replace placeholder values without injection risks
+export NAME TITLE INSTITUTION EMAIL
+awk '
+  /^name: / { print "name: \"" ENVIRON["NAME"] "\""; next }
+  /^title: / { print "title: \"" ENVIRON["TITLE"] "\""; next }
+  /^institution: / { print "institution: \"" ENVIRON["INSTITUTION"] "\""; next }
+  /^email: / { print "email: " ENVIRON["EMAIL"]; next }
+  { print }
+' _config.yml > _config.yml.tmp && mv _config.yml.tmp _config.yml
 
 echo "Done!"
 echo ""
