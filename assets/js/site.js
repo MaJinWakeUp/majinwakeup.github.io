@@ -133,26 +133,39 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 400) {
-      topBtn.classList.add('visible');
-    } else {
-      topBtn.classList.remove('visible');
-    }
-  }, { passive: true });
-
-  // ----- Navbar Scroll Shadow -----
+  // ----- Scroll Effects (Back to Top & Navbar) -----
+  // Optimization: Consolidate scroll events and throttle using requestAnimationFrame
+  // to prevent excessive main thread blocking and layout thrashing during scroll.
 
   const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
+  let ticking = false;
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        const scrollY = window.scrollY;
+
+        // Back to top button
+        if (scrollY > 400) {
+          topBtn.classList.add('visible');
+        } else {
+          topBtn.classList.remove('visible');
+        }
+
+        // Navbar scroll shadow
+        if (navbar) {
+          if (scrollY > 10) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   // ----- Fade-in on Scroll -----
 
