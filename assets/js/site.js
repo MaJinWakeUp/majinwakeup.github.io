@@ -243,6 +243,11 @@
     fetch('/assets/search.json')
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        // Pre-compute lowercase strings for faster search filtering
+        data.forEach(function (item) {
+          item.titleLower = item.title.toLowerCase();
+          item.contentLower = item.content.toLowerCase();
+        });
         searchData = data;
         callback(data);
       })
@@ -258,8 +263,8 @@
     }
     const q = query.toLowerCase();
     const matches = data.filter(function (item) {
-      return item.title.toLowerCase().includes(q) ||
-             item.content.toLowerCase().includes(q);
+      return item.titleLower.includes(q) ||
+             item.contentLower.includes(q);
     });
 
     if (matches.length === 0) {
