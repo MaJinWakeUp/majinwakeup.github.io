@@ -25,7 +25,7 @@ task :publish => [:generate] do
   end
 
   # Resolve relative filesystem remotes to absolute paths before changing directories
-  if remote_url.start_with?(".", "/")
+  unless remote_url.match?(%r{\A(?:[a-zA-Z][a-zA-Z0-9+.-]*://|[\w.-]+@[\w.-]+:)})
     remote_url = File.expand_path(remote_url)
   end
 

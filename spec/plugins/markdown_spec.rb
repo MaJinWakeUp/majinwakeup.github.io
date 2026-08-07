@@ -8,7 +8,8 @@ RSpec.describe Jekyll::MarkdownTag do
 
   before do
     # Create a dummy Liquid template to test rendering
-    # The plugin reads the file from `_includes`, so we will mock `File.read`
+    # The plugin reads the file from `_includes`, so we will mock `File.realpath` and `File.read`
+    allow(File).to receive(:realpath).and_call_original
     allow(File).to receive(:read).and_call_original
   end
 
@@ -21,7 +22,9 @@ RSpec.describe Jekyll::MarkdownTag do
       let(:tag) { described_class.parse(tag_name, text, tokens, Liquid::ParseContext.new) }
 
       before do
-        allow(File).to receive(:read).with(File.join(Dir.pwd, "_includes", "test_simple.md")).and_return("# Hello World\n\nThis is a *test*.")
+        target_path = File.join(Dir.pwd, "_includes", "test_simple.md")
+        allow(File).to receive(:realpath).with(target_path).and_return(target_path)
+        allow(File).to receive(:read).with(target_path).and_return("# Hello World\n\nThis is a *test*.")
       end
 
       it "renders HTML correctly" do
@@ -38,7 +41,9 @@ RSpec.describe Jekyll::MarkdownTag do
 
       before do
         allow(site).to receive(:site_payload).and_return(site_payload)
-        allow(File).to receive(:read).with(File.join(Dir.pwd, "_includes", "test_liquid.md")).and_return("Welcome to {{ site.title }}!")
+        target_path = File.join(Dir.pwd, "_includes", "test_liquid.md")
+        allow(File).to receive(:realpath).with(target_path).and_return(target_path)
+        allow(File).to receive(:read).with(target_path).and_return("Welcome to {{ site.title }}!")
       end
 
       it "evaluates liquid tags before rendering markdown" do
