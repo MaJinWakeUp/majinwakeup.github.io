@@ -87,13 +87,16 @@
     btn.className = 'copy-btn';
     btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
     btn.title = 'Copy to clipboard';
+    btn.setAttribute('aria-label', 'Copy to clipboard');
 
     btn.addEventListener('click', function () {
       navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
         btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        btn.setAttribute('aria-label', 'Copied to clipboard');
         btn.classList.add('copied');
         setTimeout(function () {
           btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+          btn.setAttribute('aria-label', 'Copy to clipboard');
           btn.classList.remove('copied');
         }, 2000);
       });
