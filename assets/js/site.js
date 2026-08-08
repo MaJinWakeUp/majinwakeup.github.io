@@ -109,20 +109,6 @@
     wrapper.appendChild(btn);
   });
 
-  // ----- Publication Year Badges -----
-
-  document.querySelectorAll('.pub-entry').forEach(function (entry) {
-    const text = entry.textContent;
-    // Match a 4-digit year in parentheses, common in citation format
-    const match = text.match(/\((\d{4})\)/);
-    if (match) {
-      const badge = document.createElement('span');
-      badge.className = 'year-badge';
-      badge.textContent = match[1];
-      entry.insertBefore(badge, entry.firstChild);
-    }
-  });
-
   // ----- Back to Top Button -----
 
   const topBtn = document.createElement('button');

@@ -2,6 +2,9 @@
 ---
 
 <div class="pub-entry" data-pub-searchable>
+  {% if entry.year %}
+  <span class="year-badge">{{ entry.year }}</span>
+  {% endif %}
   <div class="text-justify">{{ reference }}</div>
 
   <!-- You can use the below to make your name bold -->
