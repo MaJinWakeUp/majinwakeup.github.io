@@ -43,6 +43,8 @@
     if (!target) return;
 
     target.classList.toggle('show');
+    const isExpanded = target.classList.contains('show');
+    button.setAttribute('aria-expanded', isExpanded);
   });
 
   // ----- Publication Search/Filter -----
