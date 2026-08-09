@@ -47,11 +47,17 @@
 
   {% if entry.abstract %}
   <div class="pub-collapse" id="bib-{{ entry.key }}">
-    <pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
+    <div class="copy-wrapper" style="position: relative;">
+      <pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
+      <button class="copy-btn" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="fa-regular fa-copy"></i></button>
+    </div>
   </div>
   {% else %}
   <div class="pub-collapse" id="bib-{{ entry.key }}">
-    <pre>{{ entry.bibtex }}</pre>
+    <div class="copy-wrapper" style="position: relative;">
+      <pre>{{ entry.bibtex }}</pre>
+      <button class="copy-btn" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="fa-regular fa-copy"></i></button>
+    </div>
   </div>
   {% endif %}
 

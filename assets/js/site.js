@@ -73,40 +73,31 @@
   }
 
   // ----- Copy BibTeX Button -----
+  // Optimization: Use event delegation instead of a querySelectorAll loop on DOM ready.
+  // This reduces main thread blocking during page load by not creating N event listeners
+  // and eliminates the layout thrashing caused by creating/appending DOM elements in JS.
+  // The static markup is now rendered server-side in _layouts/bibtemplate.html.
 
-  document.querySelectorAll('.pub-collapse').forEach(function (collapse) {
-    // Only add copy to bibtex blocks (id starts with "bib-")
-    if (!collapse.id || !collapse.id.startsWith('bib-')) return;
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
 
-    const pre = collapse.querySelector('pre');
+    const wrapper = btn.closest('.copy-wrapper');
+    if (!wrapper) return;
+
+    const pre = wrapper.querySelector('pre');
     if (!pre) return;
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'copy-wrapper';
-    wrapper.style.position = 'relative';
-
-    const btn = document.createElement('button');
-    btn.className = 'copy-btn';
-    btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
-    btn.title = 'Copy to clipboard';
-    btn.setAttribute('aria-label', 'Copy to clipboard');
-
-    btn.addEventListener('click', function () {
-      navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
-        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        btn.setAttribute('aria-label', 'Copied to clipboard');
-        btn.classList.add('copied');
-        setTimeout(function () {
-          btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
-          btn.setAttribute('aria-label', 'Copy to clipboard');
-          btn.classList.remove('copied');
-        }, 2000);
-      });
+    navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
+      btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+      btn.setAttribute('aria-label', 'Copied to clipboard');
+      btn.classList.add('copied');
+      setTimeout(function () {
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        btn.setAttribute('aria-label', 'Copy to clipboard');
+        btn.classList.remove('copied');
+      }, 2000);
     });
-
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    wrapper.appendChild(btn);
   });
 
   // ----- Back to Top Button -----
