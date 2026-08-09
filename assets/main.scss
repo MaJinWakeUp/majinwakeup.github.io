@@ -24,6 +24,7 @@ $baseurl: "{{ site.url }}{{ site.baseurl }}";
 @import "bootstrap/navbar";
 @import "bootstrap/card";
 @import "bootstrap/close";
+@import "bootstrap/helpers/visually-hidden";
 @import "bootstrap/utilities/api";
 
 // Base
