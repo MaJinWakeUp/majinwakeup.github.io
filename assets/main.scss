@@ -24,6 +24,7 @@ $baseurl: "{{ site.url }}{{ site.baseurl }}";
 @import "bootstrap/navbar";
 @import "bootstrap/card";
 @import "bootstrap/close";
+@import "bootstrap/helpers/visually-hidden";
 @import "bootstrap/utilities/api";
 
 // Base
@@ -40,6 +41,7 @@ $baseurl: "{{ site.url }}{{ site.baseurl }}";
 @import "components/publication";
 @import "components/search";
 @import "components/chips";
+@import "components/a11y";
 
 // Layouts
 @import "layouts/grid";
