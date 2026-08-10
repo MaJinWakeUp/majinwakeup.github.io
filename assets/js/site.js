@@ -102,15 +102,13 @@
 
   // ----- Back to Top Button -----
 
-  const topBtn = document.createElement('button');
-  topBtn.className = 'back-to-top';
-  topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
-  topBtn.setAttribute('aria-label', 'Back to top');
-  document.body.appendChild(topBtn);
+  const topBtn = document.getElementById('backToTop');
 
-  topBtn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // ----- Scroll Effects (Back to Top & Navbar) -----
   // Optimization: Consolidate scroll events and throttle using requestAnimationFrame
@@ -125,10 +123,12 @@
         const scrollY = window.scrollY;
 
         // Back to top button
-        if (scrollY > 400) {
-          topBtn.classList.add('visible');
-        } else {
-          topBtn.classList.remove('visible');
+        if (topBtn) {
+          if (scrollY > 400) {
+            topBtn.classList.add('visible');
+          } else {
+            topBtn.classList.remove('visible');
+          }
         }
 
         // Navbar scroll shadow
