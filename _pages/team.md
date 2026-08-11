@@ -18,11 +18,11 @@ permalink: /team/
 <h3 class="pi-name">{{ site.name }}</h3>
 <p style="font-style: italic; color: var(--text-secondary);">{{ site.title }}, {{ site.institution }}</p>
 <div class="pi-links">
-{% if site.email %}<a href="mailto:{{ site.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
-{% if site.links.google_scholar and site.links.google_scholar != "" %}<a href="{{ site.links.google_scholar }}" class="icon-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
-{% if site.links.cv and site.links.cv != "" %}<a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}" class="icon-link" title="CV"><i class="ai ai-cv"></i></a>{% endif %}
-{% if site.links.github and site.links.github != "" %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
-{% if site.links.researchgate and site.links.researchgate != "" %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
+{% if site.email %}<a href="mailto:{{ site.email }}" class="icon-link" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+{% if site.links.google_scholar and site.links.google_scholar != "" %}<a href="{{ site.links.google_scholar }}" class="icon-link" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+{% if site.links.cv and site.links.cv != "" %}<a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}" class="icon-link" title="CV" aria-label="CV"><i class="ai ai-cv"></i></a>{% endif %}
+{% if site.links.github and site.links.github != "" %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+{% if site.links.researchgate and site.links.researchgate != "" %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate" aria-label="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
 </div>
 {% if site.data.pi[0].education %}
 <ul style="margin-top: var(--space-4);">
@@ -45,10 +45,10 @@ permalink: /team/
 <h4 class="team-name">{{ member.name }}</h4>
 <p class="team-info">{{ member.info }}</p>
 <div class="team-links">
-{% if member.email %}<a href="mailto:{{ member.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
-{% if member.website %}<a href="{{ member.website }}" class="icon-link" title="Website"><i class="fa-solid fa-house"></i></a>{% endif %}
-{% if member.scholar %}<a href="{{ member.scholar }}" class="icon-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
-{% if member.github %}<a href="{{ member.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+{% if member.email %}<a href="mailto:{{ member.email }}" class="icon-link" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
+{% if member.website %}<a href="{{ member.website }}" class="icon-link" title="Website" aria-label="Website"><i class="fa-solid fa-house"></i></a>{% endif %}
+{% if member.scholar %}<a href="{{ member.scholar }}" class="icon-link" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+{% if member.github %}<a href="{{ member.github }}" class="icon-link" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
 </div>
 </div>
 {% endfor %}
