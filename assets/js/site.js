@@ -178,18 +178,25 @@
   const searchInputEl = document.getElementById('searchInput');
   const searchResultsEl = document.getElementById('searchResults');
   let searchData = null;
+  let lastActiveElement = null;
 
   function openSearch() {
     if (!searchOverlay) return;
+    lastActiveElement = document.activeElement;
     searchOverlay.classList.add('open');
+    if (searchToggleBtn) searchToggleBtn.setAttribute('aria-expanded', 'true');
     setTimeout(function () { searchInputEl.focus(); }, 100);
   }
 
   function closeSearch() {
     if (!searchOverlay) return;
     searchOverlay.classList.remove('open');
+    if (searchToggleBtn) searchToggleBtn.setAttribute('aria-expanded', 'false');
     searchInputEl.value = '';
     searchResultsEl.innerHTML = '';
+    if (lastActiveElement) {
+      lastActiveElement.focus();
+    }
   }
 
   if (searchToggleBtn) {

@@ -81,3 +81,55 @@ describe('Publication Search/Filter', () => {
     expect(() => eval(jsCode)).not.toThrow();
   });
 });
+
+describe('Site Search', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <button id="searchToggle" aria-expanded="false"></button>
+      <div id="searchOverlay" class=""></div>
+      <input id="searchInput" />
+      <div id="searchResults"></div>
+      <button id="otherButton">Other</button>
+    `;
+
+    jest.useFakeTimers();
+
+    // Execute the site.js code
+    eval(jsCode);
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+    jest.useRealTimers();
+  });
+
+  test('should update aria-expanded and manage focus on open/close', () => {
+    const searchToggleBtn = document.getElementById('searchToggle');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const otherButton = document.getElementById('otherButton');
+    const searchInput = document.getElementById('searchInput');
+
+    // Simulate focus on a button before opening search
+    otherButton.focus();
+    expect(document.activeElement).toBe(otherButton);
+
+    // Open search
+    searchToggleBtn.click();
+    expect(searchOverlay.classList.contains('open')).toBe(true);
+    expect(searchToggleBtn.getAttribute('aria-expanded')).toBe('true');
+
+    // Run setTimeout for focus
+    jest.runAllTimers();
+    expect(document.activeElement).toBe(searchInput);
+
+    // Close search by pressing Escape
+    const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
+    document.dispatchEvent(escapeEvent);
+
+    expect(searchOverlay.classList.contains('open')).toBe(false);
+    expect(searchToggleBtn.getAttribute('aria-expanded')).toBe('false');
+
+    // Focus should be restored to the previous active element
+    expect(document.activeElement).toBe(otherButton);
+  });
+});
