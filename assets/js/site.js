@@ -43,6 +43,8 @@
     if (!target) return;
 
     target.classList.toggle('show');
+    const isExpanded = target.classList.contains('show');
+    button.setAttribute('aria-expanded', isExpanded);
   });
 
   // ----- Publication Search/Filter -----
@@ -71,85 +73,78 @@
   }
 
   // ----- Copy BibTeX Button -----
+  // Optimization: Use event delegation instead of a querySelectorAll loop on DOM ready.
+  // This reduces main thread blocking during page load by not creating N event listeners
+  // and eliminates the layout thrashing caused by creating/appending DOM elements in JS.
+  // The static markup is now rendered server-side in _layouts/bibtemplate.html.
 
-  document.querySelectorAll('.pub-collapse').forEach(function (collapse) {
-    // Only add copy to bibtex blocks (id starts with "bib-")
-    if (!collapse.id || !collapse.id.startsWith('bib-')) return;
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
 
-    const pre = collapse.querySelector('pre');
+    const wrapper = btn.closest('.copy-wrapper');
+    if (!wrapper) return;
+
+    const pre = wrapper.querySelector('pre');
     if (!pre) return;
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'copy-wrapper';
-    wrapper.style.position = 'relative';
-
-    const btn = document.createElement('button');
-    btn.className = 'copy-btn';
-    btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
-    btn.title = 'Copy to clipboard';
-
-    btn.addEventListener('click', function () {
-      navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
-        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-        btn.classList.add('copied');
-        setTimeout(function () {
-          btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
-          btn.classList.remove('copied');
-        }, 2000);
-      });
+    navigator.clipboard.writeText(pre.textContent.trim()).then(function () {
+      btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+      btn.setAttribute('aria-label', 'Copied to clipboard');
+      btn.classList.add('copied');
+      setTimeout(function () {
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        btn.setAttribute('aria-label', 'Copy to clipboard');
+        btn.classList.remove('copied');
+      }, 2000);
     });
-
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    wrapper.appendChild(btn);
-  });
-
-  // ----- Publication Year Badges -----
-
-  document.querySelectorAll('.pub-entry').forEach(function (entry) {
-    const text = entry.textContent;
-    // Match a 4-digit year in parentheses, common in citation format
-    const match = text.match(/\((\d{4})\)/);
-    if (match) {
-      const badge = document.createElement('span');
-      badge.className = 'year-badge';
-      badge.textContent = match[1];
-      entry.insertBefore(badge, entry.firstChild);
-    }
   });
 
   // ----- Back to Top Button -----
 
-  const topBtn = document.createElement('button');
-  topBtn.className = 'back-to-top';
-  topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
-  topBtn.setAttribute('aria-label', 'Back to top');
-  document.body.appendChild(topBtn);
+  const topBtn = document.getElementById('backToTop');
 
-  topBtn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 400) {
-      topBtn.classList.add('visible');
-    } else {
-      topBtn.classList.remove('visible');
-    }
-  }, { passive: true });
-
-  // ----- Navbar Scroll Shadow -----
+  // ----- Scroll Effects (Back to Top & Navbar) -----
+  // Optimization: Consolidate scroll events and throttle using requestAnimationFrame
+  // to prevent excessive main thread blocking and layout thrashing during scroll.
 
   const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
+  let ticking = false;
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        const scrollY = window.scrollY;
+
+        // Back to top button
+        if (topBtn) {
+          if (scrollY > 400) {
+            topBtn.classList.add('visible');
+          } else {
+            topBtn.classList.remove('visible');
+          }
+        }
+
+        // Navbar scroll shadow
+        if (navbar) {
+          if (scrollY > 10) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   // ----- Fade-in on Scroll -----
 
@@ -227,6 +222,11 @@
     fetch('/assets/search.json')
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        // Pre-compute lowercase strings for faster search filtering
+        data.forEach(function (item) {
+          item.titleLower = item.title.toLowerCase();
+          item.contentLower = item.content.toLowerCase();
+        });
         searchData = data;
         callback(data);
       })
@@ -242,8 +242,8 @@
     }
     const q = query.toLowerCase();
     const matches = data.filter(function (item) {
-      return item.title.toLowerCase().includes(q) ||
-             item.content.toLowerCase().includes(q);
+      return item.titleLower.includes(q) ||
+             item.contentLower.includes(q);
     });
 
     if (matches.length === 0) {

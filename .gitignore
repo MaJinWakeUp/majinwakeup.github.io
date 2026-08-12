@@ -9,3 +9,8 @@ node_modules/
 .worktrees/
 AGENTS.md
 vendor/
+.bundle/
+.Jules/
+.jules/
+jules-reply.json
+pnpm-lock.yaml
