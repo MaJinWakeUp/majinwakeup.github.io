@@ -14,16 +14,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link{% if page.url == '/' %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+          <a class="nav-link{% if page.url == '/' %} active{% endif %}" href="{{ site.baseurl }}/"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
         </li>
         {% for nav in site.nav_pages %}
         <li class="nav-item">
-          <a class="nav-link{% if page.url contains nav.name %} active{% endif %}" href="{{ site.baseurl }}/{{ nav.name }}">{{ nav.name | capitalize }}</a>
+          <a class="nav-link{% if page.url contains nav.name %} active{% endif %}" href="{{ site.baseurl }}/{{ nav.name }}"{% if page.url contains nav.name %} aria-current="page"{% endif %}>{{ nav.name | capitalize }}</a>
         </li>
         {% endfor %}
       </ul>
       <div class="navbar-actions d-flex align-items-center" style="gap: var(--space-2);">
-        <button class="search-toggle" id="searchToggle" aria-label="Search site">
+        <button class="search-toggle" id="searchToggle" aria-label="Search site" title="Search site (⌘K or Ctrl+K)">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         {% if site.dark_mode %}
