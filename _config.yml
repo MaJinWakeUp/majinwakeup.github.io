@@ -110,3 +110,8 @@ exclude:
   - docs
   - spec
   - setup.sh
+  - tests
+  - jest.config.js
+  - AGENTS.md
+  - UPGRADING.md
+  - citesty.csl

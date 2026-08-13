@@ -11,9 +11,9 @@ permalink: /allnews.html
 <div class="news-timeline">
 {% for article in site.data.news %}
 <div class="news-item">
-<span class="news-date">{{ article.date }}</span>
-{% if article.type %}<span class="news-tag {{ article.type }}">{{ article.tag | default: article.type }}</span>{% endif %}
-<span class="news-headline">{{ article.headline }}</span>
+<div class="news-date">{{ article.date }}</div>
+{% if article.type %}<span class="news-tag {{ article.type }}">{{ article.tag | default: article.type }}</span><br>{% endif %}
+<div class="news-headline">{{ article.headline }}</div>
 </div>
 {% endfor %}
 </div>

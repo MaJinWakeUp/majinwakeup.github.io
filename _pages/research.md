@@ -2,6 +2,7 @@
 title: "Research"
 layout: gridlay
 sitemap: false
+search: false
 permalink: /research/
 ---
 

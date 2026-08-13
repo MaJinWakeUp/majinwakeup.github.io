@@ -9,19 +9,18 @@ permalink: /
 <p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
 
 <div class="chip-container" markdown="0">
-<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Trustworthy AI</a>
-<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">AI for Security</a>
-<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Adversarial Attacks &amp; Defenses</a>
-<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">LLMs for Cyber Harassment Detection</a>
-<a href="{{ site.url }}{{ site.baseurl }}/publications" class="chip">Biometric Authentication</a>
+<a href="{{ site.baseurl }}/publications" class="chip">Trustworthy AI</a>
+<a href="{{ site.baseurl }}/publications" class="chip">AI for Security</a>
+<a href="{{ site.baseurl }}/publications" class="chip">Adversarial Attacks &amp; Defenses</a>
+<a href="{{ site.baseurl }}/publications" class="chip">LLMs for Cyber Harassment Detection</a>
+<a href="{{ site.baseurl }}/publications" class="chip">Biometric Authentication</a>
 </div>
 
 Can we truly trust the AI systems we increasingly rely on? The gap between what AI can do and how easily it can be fooled or misused is what inspires my work toward intelligent systems that are **secure, reliable, and worthy of trust**.
 
 <div class="callout callout-success" markdown="0">
-<div class="callout-title">Looking for internship &mdash; Summer 2027</div>
-<!-- <i class="fa-solid fa-award callout-icon"></i> -->
-<p>I am actively seeking internship opportunities for Summer 2027. Feel free to reach out via <a href="mailto:{{ site.email }}">email</a> or take a look at my <a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}">CV</a>.</p>
+<div class="callout-title"><i class="fa-solid fa-briefcase callout-icon"></i> Looking for internship &mdash; Summer 2027</div>
+<p>I am actively seeking internship opportunities for Summer 2027. Feel free to reach out via <a href="mailto:{{ site.email }}">email</a> or take a look at my <a href="{{ site.baseurl }}/{{ site.links.cv }}">CV</a>.</p>
 </div>
 
 <blockquote class="hawking-quote" markdown="0">

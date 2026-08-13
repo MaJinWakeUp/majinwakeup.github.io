@@ -2,6 +2,7 @@
 title: "Talks"
 layout: gridlay
 sitemap: false
+search: false
 permalink: /talks/
 ---
 

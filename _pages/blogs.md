@@ -2,6 +2,7 @@
 title: "Blog"
 layout: gridlay
 sitemap: false
+search: false
 permalink: /blogs/
 ---
 

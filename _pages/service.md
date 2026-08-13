@@ -13,14 +13,14 @@ permalink: /service/
 <p style="margin-bottom: var(--space-1);"><strong>AsiaCCS 2024 Volunteer</strong> &mdash; ACM AsiaCCS</p>
 <p style="color: var(--text-secondary); margin-top: 0;">Acknowledging active volunteer service at the ACM AsiaCCS 2024 conference in Singapore.</p>
 <div class="pub-actions">
-<a href="{{ site.url }}{{ site.baseurl }}/papers/certificates/AsiaCCS24-volunteer.pdf" target="_blank" class="btn-pill btn-pdf">PDF</a>
+<a href="{{ site.baseurl }}/papers/certificates/AsiaCCS24-volunteer.pdf" target="_blank" class="btn-pill btn-pdf">PDF</a>
 </div>
 </div>
 <div>
 <p style="margin-bottom: var(--space-1);"><strong>TDSC 2025 Reviewer</strong> &mdash; IEEE TDSC</p>
 <p style="color: var(--text-secondary); margin-top: 0;">Recognizing service as a reviewer for IEEE Transactions on Dependable and Secure Computing in 2025.</p>
 <div class="pub-actions">
-<a href="{{ site.url }}{{ site.baseurl }}/papers/certificates/TDSC25-reviewer_certificate.pdf" target="_blank" class="btn-pill btn-pdf">PDF</a>
+<a href="{{ site.baseurl }}/papers/certificates/TDSC25-reviewer_certificate.pdf" target="_blank" class="btn-pill btn-pdf">PDF</a>
 </div>
 </div>
 </div>
