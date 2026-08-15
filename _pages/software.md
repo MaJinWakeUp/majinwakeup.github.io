@@ -2,6 +2,7 @@
 title: "Software"
 layout: gridlay
 sitemap: false
+search: false
 permalink: /software/
 ---
 
