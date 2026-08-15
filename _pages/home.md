@@ -19,8 +19,8 @@ permalink: /
 Can we truly trust the AI systems we increasingly rely on? The gap between what AI can do and how easily it can be fooled or misused is what inspires my work toward intelligent systems that are **secure, reliable, and worthy of trust**.
 
 <div class="callout callout-success" markdown="0">
-<div class="callout-title"><i class="fa-solid fa-briefcase callout-icon"></i> Looking for internship &mdash; Summer 2027</div>
-<p>I am actively seeking internship opportunities for Summer 2027. Feel free to reach out via <a href="mailto:{{ site.email }}">email</a> or take a look at my <a href="{{ site.baseurl }}/{{ site.links.cv }}">CV</a>.</p>
+<div class="callout-title"><i class="fa-solid fa-briefcase callout-icon"></i> Seeking Faculty and Research Opportunities &mdash; Fall 2027</div>
+<p>I am exploring faculty and research-oriented career opportunities beginning in Fall 2027. Please contact me via <a href="mailto:{{ site.email }}">email</a> or review my <a href="{{ site.baseurl }}/{{ site.links.cv }}">CV</a> for additional information.</p>
 </div>
 
 <blockquote class="hawking-quote" markdown="0">
