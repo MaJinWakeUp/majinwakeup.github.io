@@ -1,7 +1,7 @@
 # A website template for academics
 
 <p align="center">
-  <img src="images/screenshots/home-hero.png" alt="Home page — light and dark mode" width="900">
+  <img src="docs/screenshots/home-hero.png" alt="Home page — light and dark mode" width="900">
 </p>
 
 <p align="center">
@@ -270,15 +270,14 @@ __Using this template? Share your site and I'll add it here!__
 - **Single JS file** (4KB minified) — dark mode, search, toggles, scroll effects, copy button
 - **Auto-generated sitemap** via `jekyll-sitemap`
 - **Open Graph + Twitter Cards** — links look good when shared on social media
-- **MathJax 3** — LaTeX formula rendering out of the box
 
 ## Screenshots
 
 | | |
 |:---:|:---:|
-| ![Publications](images/screenshots/publications.png) | ![Team](images/screenshots/team.png) |
+| ![Publications](docs/screenshots/publications.png) | ![Team](docs/screenshots/team.png) |
 | Publications with search & year badges | Team page with card grid |
-| ![Search](images/screenshots/search.png) | |
+| ![Search](docs/screenshots/search.png) | |
 | Site-wide search (Cmd+K) | |
 
 ## Quick Start

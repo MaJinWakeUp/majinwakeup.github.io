@@ -56,8 +56,6 @@
   {% include analytics.html %}
   {% endif %}
 
-  {% include mathjax.html %}
-
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -74,7 +72,7 @@
         "@type": "Organization",
         "name": "{{ site.institution | escape }}"
       }{% if site.links.google_scholar and site.links.google_scholar != "" %},
-      "sameAs": ["{{ site.links.google_scholar }}"{% if site.links.github and site.links.github != "" %}, "{{ site.links.github }}"{% endif %}{% if site.links.orcid and site.links.orcid != "" %}, "{{ site.links.orcid }}"{% endif %}]{% endif %}
+      "sameAs": ["{{ site.links.google_scholar }}"{% if site.links.github and site.links.github != "" %}, "{{ site.links.github }}"{% endif %}{% if site.links.linkedin and site.links.linkedin != "" %}, "{{ site.links.linkedin }}"{% endif %}{% if site.links.orcid and site.links.orcid != "" %}, "{{ site.links.orcid }}"{% endif %}]{% endif %}
     }
   }
   </script>
