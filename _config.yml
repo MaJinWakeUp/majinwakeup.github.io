@@ -5,7 +5,7 @@ name: "Jin Ma"
 title: "Ph.D. Student"
 institution: "Clemson University"
 email: majinwakeup@gmail.com
-photo: profile.png  # place your photo in images/
+photo: profile.jpg  # place your photo in images/
 
 # ============================================================
 # STEP 2: Your Links (optional -- delete any you don't use)
@@ -16,7 +16,7 @@ links:
   # researchgate: "https://www.researchgate.net/"  # add your ResearchGate profile to enable
   orcid: "https://orcid.org/0000-0002-4089-6898"
   twitter: ""
-  linkedin: ""
+  linkedin: "https://www.linkedin.com/in/jin-ma-02bb2a113/"
   cv: "papers/cv.pdf"  # e.g., "papers/cv.pdf" — leave blank to hide the CV icon
 
 # ============================================================
@@ -115,3 +115,6 @@ exclude:
   - AGENTS.md
   - UPGRADING.md
   - citesty.csl
+  - .DS_Store
+  - assets/ref.example.bib
+  - assets/js/site.test.js
