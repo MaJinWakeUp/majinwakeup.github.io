@@ -27,6 +27,7 @@ permalink: /service/
 <div class="section-card">
 <h3>Peer Review</h3>
 <ul>
+<li>AAAI(AISI) 2027 &mdash; Reviewer</li>
 <li>ACM MM 2026 &mdash; PC Member / Reviewer</li>
 <li>ICWSM 2026 &mdash; PC Member / Reviewer</li>
 <li>TRB Annual Meeting 2025 &mdash; Reviewer</li>

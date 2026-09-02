@@ -2,12 +2,12 @@
 # Basic info (name, photo, links) lives in _config.yml.
 
 - education:
-    - "(2023-2028 expected) Ph.D. Computer Science, Clemson University"
+    - "(2023-2027 expected) Ph.D. Computer Science, Clemson University"
     - "(Summer 2024) Visiting Student, Singapore University of Technology and Design"
     - "(2021-2023) Ph.D. Computer Science, Cleveland State University (transferred out)"
     - "(2019) M.S. Software Engineering, Xi'an Jiaotong University"
     - "(2016) B.S. Information and Computing Science, Xi'an Jiaotong University"
   educationshort:
-    - "(2028) Ph.D. Computer Science, Clemson"
+    - "(2027) Ph.D. Computer Science, Clemson"
     - "(2019) M.S. Software Eng., XJTU"
     - "(2016) B.S. Info. & Computing Sci., XJTU"
