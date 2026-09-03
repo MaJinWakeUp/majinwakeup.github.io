@@ -8,7 +8,7 @@
   <div class="text-justify">{{ reference }}</div>
 
   <!-- You can use the below to make your name bold -->
-  <!-- <div class="text-justify">{{ reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' }}</div> -->
+  <!-- <div class="text-justify">{{ reference | replace_first: 'Ma, J.', '<b>Ma, J.</b>' }}</div> -->
 
   {% assign bibtest = false %}
   {% if entry.file %}
@@ -26,12 +26,13 @@
     <a href="{{ entry.url }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
     {% endif %}
 
-    {% if entry.doi %}
-      {% if entry.type == 'unpublished' %}
-      <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>
-      {% else %}
-      <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank" class="btn-pill btn-doi">DOI</a>
+    {% if entry.type == 'unpublished' %}
+      {% assign arxiv_id = entry.eprint | default: entry.doi %}
+      {% if arxiv_id %}
+      <a href="{{ arxiv_id | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>
       {% endif %}
+    {% elsif entry.doi %}
+      <a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank" class="btn-pill btn-doi">DOI</a>
     {% endif %}
 
     {% if entry.type == 'unpublished' or entry.type == 'article' or entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}

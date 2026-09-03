@@ -14,3 +14,4 @@ vendor/
 .jules/
 jules-reply.json
 pnpm-lock.yaml
+.claude/

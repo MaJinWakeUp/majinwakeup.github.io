@@ -4,7 +4,7 @@
 name: "Jin Ma"
 title: "Ph.D. Student"
 institution: "Clemson University"
-email: majinwakeup@gmail.com
+email: jin7@clemson.edu
 photo: profile.jpg  # place your photo in images/
 
 # ============================================================
@@ -30,7 +30,7 @@ url: "https://majinwakeup.github.io"
 
 # Google Analytics — paste your GA4 measurement ID, or leave blank
 analytics:
-  google_id: ""
+  google_id: "G-YJW8XE1TEM"
 
 # ============================================================
 # STEP 4: Choose Your Pages (comment out any you don't need)
@@ -40,13 +40,6 @@ nav_pages:
   - name: publications
   - name: teaching
   - name: service
-  # Pages below are kept in the repo but hidden from the nav for now.
-  # Uncomment any you want to show later (their page files still exist under _pages/).
-  # - name: talks
-  # - name: research
-  # - name: software
-  # - name: team
-  # - name: blogs
 
 # ============================================================
 # Advanced Settings (you probably don't need to change these)
