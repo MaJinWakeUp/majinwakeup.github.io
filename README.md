@@ -247,8 +247,8 @@ __Using this template? Share your site and I'll add it here!__
 - **Site-wide search** — press `Cmd+K` (or `Ctrl+K`) to instantly search all pages
 - **Copy BibTeX** — hover any bibtex block to reveal a one-click copy button
 - **Animated link underlines** — smooth gradient underlines that grow on hover
-- **Card hover effects** — lift + shadow on team cards, research cards, and profile photo
-- **Image zoom** — subtle scale on hover for team photos, research thumbnails, and the banner
+- **Card hover effects** — lift + shadow on cards and the profile photo
+- **Image zoom** — subtle scale on hover for the profile photo and badge gallery
 - **Back-to-top button** — appears on scroll, smooth scrolls up
 - **Smooth expand/collapse** — CSS transitions on publication abstracts and BibTeX entries
 
@@ -275,10 +275,8 @@ __Using this template? Share your site and I'll add it here!__
 
 | | |
 |:---:|:---:|
-| ![Publications](docs/screenshots/publications.png) | ![Team](docs/screenshots/team.png) |
-| Publications with search & year badges | Team page with card grid |
-| ![Search](docs/screenshots/search.png) | |
-| Site-wide search (Cmd+K) | |
+| ![Publications](docs/screenshots/publications.png) | ![Search](docs/screenshots/search.png) |
+| Publications with search & year badges | Site-wide search (Cmd+K) |
 
 ## Quick Start
 
@@ -291,7 +289,7 @@ __Using this template? Share your site and I'll add it here!__
    vim _config.yml     # edit Steps 1-4 directly
    ```
 4. **Add your publications** to `assets/ref.bib`
-5. **Customize** data files in `_data/` (team members, news, awards, etc.)
+5. **Customize** data files in `_data/` (news, awards, grants, etc.)
 6. **Preview** your site:
    ```bash
    bundle exec jekyll serve
@@ -330,7 +328,7 @@ name: "Jane Smith"
 title: "Assistant Professor of Computer Science"
 institution: "Stanford University"
 email: jsmith@stanford.edu
-photo: headshot.jpg   # place your photo in images/
+photo: profile.jpg   # place your photo in images/
 ```
 
 Or run the interactive setup script:
@@ -386,20 +384,7 @@ scholar:
 
 Then uncomment the name-bolding line in `_layouts/bibtemplate.html`.
 
-### Step 7: Add Team Members
-
-Edit `_data/team_members.yml`:
-
-```yaml
-- name: Alice Johnson
-  photo: alice.jpg          # place in images/ or images/team/
-  info: PhD Student, started Fall 2023
-  email: alice@university.edu
-  website: https://alice.dev
-  github: https://github.com/alice
-```
-
-### Step 8: Add News
+### Step 7: Add News
 
 Edit `_data/news.yml` (newest first):
 
@@ -411,14 +396,15 @@ Edit `_data/news.yml` (newest first):
   headline: "Welcome to new PhD student Alice Johnson"
 ```
 
-### Step 9: Customize Pages
+### Step 8: Customize Pages
 
 Each page in `_pages/` is a Markdown file. Edit the content directly:
 
 - `home.md` — your welcome text and bio
-- `research.md` — describe your research areas
-- `software.md` — list your software projects
+- `about.md` — education, work experience, awards
+- `publications.md` — auto-generated from `assets/ref.bib`
 - `teaching.md` — list your courses
+- `service.md` — reviewing and professional service
 
 To remove a page from the navbar, comment it out in `_config.yml`:
 
@@ -426,11 +412,11 @@ To remove a page from the navbar, comment it out in `_config.yml`:
 nav_pages:
   - name: about
   - name: publications
-  # - name: talks        # hidden from navbar
-  - name: research
+  # - name: teaching       # hidden from navbar
+  - name: service
 ```
 
-### Step 10: Preview and Deploy
+### Step 9: Preview and Deploy
 
 ```bash
 # Preview locally
@@ -466,12 +452,9 @@ The config file is organized into 4 numbered steps:
 
 | File | Purpose |
 |------|---------|
-| `_data/team_members.yml` | Current students and postdocs |
-| `_data/alumni.yml` | Former lab members |
 | `_data/news.yml` | News items (3 most recent shown on home) |
 | `_data/awards.yml` | Awards and honors |
 | `_data/grants.yml` | Grants and funding |
-| `_data/funders.yml` | Funder logos |
 | `_data/people.yml` | Students and mentees |
 | `_data/pi.yml` | Optional: detailed education for About page |
 
@@ -480,6 +463,8 @@ Each file has inline comments explaining every field. Entries marked `# EXAMPLE`
 ### Pages
 
 All pages are in `_pages/`. Edit the Markdown content directly. Pages use the `gridlay` layout by default.
+
+Note: this deployment intentionally removed the template's Team/Research/Software/Talks/Blog pages and the RSS feed (`feed.xml`). Restore them from git history if you ever want them back.
 
 ### Accent Color & Dark Mode
 
@@ -493,7 +478,7 @@ The site uses modular SASS in `_sass/`:
 _sass/
   base/          # variables, typography, reset
   components/    # card, navbar, buttons, footer, profile, publication, search
-  layouts/       # home grid, team grid, research grid
+  layouts/       # home grid
   utilities/     # dark mode, animations
 ```
 

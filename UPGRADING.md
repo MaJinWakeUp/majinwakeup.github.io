@@ -25,7 +25,7 @@ name: "Richard Feynman"
 title: "Professor of Physics"
 institution: "California Institute of Technology"
 email: richard@university.edu
-photo: headshot.jpg
+photo: profile.jpg
 links:
   google_scholar: "..."
   github: "..."
@@ -48,16 +48,15 @@ Basic PI info (name, photo, email, links) now lives in `_config.yml`. The `pi.ym
 
 ## 3. Organize Images (Optional)
 
-New subdirectories are available:
-- `images/team/` — team member photos
-- `images/research/` — research thumbnails
-- `images/banner/` — banner images
+Place your profile photo and any logo/badge images in `images/`. Your existing flat `images/` structure works as-is.
 
-Your existing flat `images/` structure still works.
+Note: the template's `images/team/`, `images/research/`, and `images/banner/` subdirectories were removed in this deployment along with the corresponding pages.
 
 ## 4. Data Files
 
-Field names in `team_members.yml`, `alumni.yml`, `news.yml`, etc. are unchanged. Your existing data files should work as-is.
+Field names in `news.yml`, `pi.yml`, etc. are unchanged. Your existing data files should work as-is.
+
+Note: the template's `team_members.yml`, `alumni.yml`, and `funders.yml` were removed in this deployment along with the Team page and sponsor logos.
 
 ## 5. Publications
 
