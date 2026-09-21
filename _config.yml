@@ -2,7 +2,7 @@
 # STEP 1: Your Identity (required)
 # ============================================================
 name: "Jin Ma"
-title: "Ph.D. Student"
+title: "Ph.D. Candidate"
 institution: "Clemson University"
 email: jin7@clemson.edu
 photo: profile.jpg  # place your photo in images/
@@ -24,7 +24,7 @@ links:
 # ============================================================
 accent_color: "#1a7a6d"      # theme color for links and buttons
 dark_mode: true              # show dark mode toggle in navbar
-description: "Academic homepage of Jin Ma, Ph.D. student at Clemson University"
+description: "Academic homepage of Jin Ma, Ph.D. candidate at Clemson University"
 baseurl: ""
 url: "https://majinwakeup.github.io"
 

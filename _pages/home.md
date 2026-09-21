@@ -90,6 +90,6 @@ Can we truly trust the AI systems we increasingly rely on? The gap between what 
 
 ### About me
 
-I am currently a fourth-year Ph.D. student in the School of Computing at Clemson University.
+I am currently a Ph.D. candidate in the School of Computing at Clemson University.
 My interests span adversarial attacks and defenses of perception systems, cyber harassment detection using large language models, and ML-enabled biometric authentication.
 Before Clemson, I earned my M.S. in Software Engineering and B.S. in Information and Computing Science at Xi'an Jiaotong University, and worked as an engineer in industry.
