@@ -4,6 +4,11 @@
 # Optional: type (good | bad) -> colored marker, and tag (short label text on the marker).
 # NOTE: items below are derived from real publication/service records — feel free to edit, reorder, or add.
 
+- date: 23 September, 2026
+  type: good
+  tag: Accepted
+  headline: "Paper by a high school student I mentored accepted to BIBM 2026"
+
 - date: 11 September, 2026
   type: good
   tag: Accepted
