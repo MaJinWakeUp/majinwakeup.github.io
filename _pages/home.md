@@ -8,9 +8,14 @@ permalink: /
 <p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
 
 <div class="chip-container" markdown="0">
+<div class="chip-row">
 <a href="{{ site.baseurl }}/publications" class="chip">Trustworthy AI</a>
 <a href="{{ site.baseurl }}/publications" class="chip">Robust Vision-Based Perception Systems</a>
+</div>
+<div class="chip-row">
+<a href="{{ site.baseurl }}/publications" class="chip">Image-Generator Security</a>
 <a href="{{ site.baseurl }}/publications" class="chip">Multimodal Web Safety</a>
+</div>
 </div>
 
 Can we truly trust the AI systems we increasingly rely on? The gap between what AI can do and how easily it can be fooled or misused is what inspires my work toward intelligent systems that are **secure, reliable, and worthy of trust**.
@@ -89,5 +94,5 @@ Can we truly trust the AI systems we increasingly rely on? The gap between what 
 ### About me
 
 I am a Ph.D. candidate in the School of Computing at Clemson University, specializing in trustworthy AI and cybersecurity with a focus on computer vision and machine learning security.
-My research examines vulnerabilities in vision-based perception systems, diffusion-based defenses against physical adversarial patches, and applications of large vision-language models to online content safety, including hate-video detection and automated Community Notes generation.
+My research examines vulnerabilities in vision-based perception systems, image-generator security, diffusion-based defenses against physical adversarial patches, and applications of large vision-language models to online content safety, including hate-video detection and automated Community Notes generation.
 Before Clemson, I earned my M.E. in Software Engineering and B.S. in Information and Computational Science at Xi'an Jiaotong University, and worked as an engineer in industry.
