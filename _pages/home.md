@@ -9,10 +9,8 @@ permalink: /
 
 <div class="chip-container" markdown="0">
 <a href="{{ site.baseurl }}/publications" class="chip">Trustworthy AI</a>
-<a href="{{ site.baseurl }}/publications" class="chip">AI for Security</a>
-<a href="{{ site.baseurl }}/publications" class="chip">Adversarial Attacks &amp; Defenses</a>
-<a href="{{ site.baseurl }}/publications" class="chip">LLMs for Cyber Harassment Detection</a>
-<a href="{{ site.baseurl }}/publications" class="chip">Biometric Authentication</a>
+<a href="{{ site.baseurl }}/publications" class="chip">Robust Vision-Based Perception Systems</a>
+<a href="{{ site.baseurl }}/publications" class="chip">Multimodal Web Safety</a>
 </div>
 
 Can we truly trust the AI systems we increasingly rely on? The gap between what AI can do and how easily it can be fooled or misused is what inspires my work toward intelligent systems that are **secure, reliable, and worthy of trust**.
@@ -90,6 +88,6 @@ Can we truly trust the AI systems we increasingly rely on? The gap between what 
 
 ### About me
 
-I am currently a Ph.D. candidate in the School of Computing at Clemson University.
-My interests span adversarial attacks and defenses of perception systems, cyber harassment detection using large language models, and ML-enabled biometric authentication.
-Before Clemson, I earned my M.S. in Software Engineering and B.S. in Information and Computing Science at Xi'an Jiaotong University, and worked as an engineer in industry.
+I am a Ph.D. candidate in the School of Computing at Clemson University, specializing in trustworthy AI and cybersecurity with a focus on computer vision and machine learning security.
+My research examines vulnerabilities in vision-based perception systems, diffusion-based defenses against physical adversarial patches, and applications of large vision-language models to online content safety, including hate-video detection and automated Community Notes generation.
+Before Clemson, I earned my M.E. in Software Engineering and B.S. in Information and Computational Science at Xi'an Jiaotong University, and worked as an engineer in industry.

@@ -1,7 +1,24 @@
-# Students and mentees, shown in the "Students and Mentoring" section on the About page
-# (section auto-hides when empty). Each entry needs: name, location, degree, year.
-# Uncomment / add entries when applicable.
-# - name: Albert Hibbs
-#   location: Caltech
-#   degree: Ph.D.
-#   year: 1955
+# Research mentees shown on the Teaching page, grouped by shared project.
+- name: Arya Hemani and Janvi Patel
+  location: Clemson University
+  level: Undergraduate researchers
+  year: Fall 2026
+  project: "Generative UI/UX safety: experimental design and automated auditing of deceptive dark patterns in prompt-to-design AI tools."
+
+- name: Addison Key
+  location: Clemson University
+  level: Honors undergraduate researcher, EUREKA! program
+  year: Summer and Fall 2026
+  project: "Adversarial robustness benchmarking, threat modeling, and evaluation pipelines for vision-language-action (VLA) models."
+
+- name: Anvitaa Rudharraju
+  location: Clemson University
+  level: High school researcher
+  year: Summer 2026
+  project: "Benchmarking vision-language models for ophthalmic tasks, including disease recognition and clinical diagnosis generation."
+
+- name: Ethan Anderson and Taran Kavuru
+  location: Clemson University
+  level: Undergraduate researchers
+  year: Spring and Fall 2025
+  project: "Multimodal web safety: dataset curation and evaluation for online abuse and contextual misinformation research."

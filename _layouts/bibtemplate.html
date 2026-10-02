@@ -27,11 +27,13 @@
     {% endif %}
 
     {% if entry.type == 'unpublished' %}
-      {% assign arxiv_id = entry.eprint | default: entry.doi %}
+      {% assign arxiv_id = entry.eprint %}
       {% if arxiv_id %}
       <a href="{{ arxiv_id | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>
       {% endif %}
-    {% elsif entry.doi %}
+    {% endif %}
+
+    {% if entry.doi %}
       <a href="{{ entry.doi | prepend: 'https://doi.org/' }}" target="_blank" class="btn-pill btn-doi">DOI</a>
     {% endif %}
 

@@ -41,16 +41,29 @@ permalink: /about/
 </div>
 
 <div class="section-card">
+<h3>Research Experience</h3>
+<ul>
+<li><strong>Clemson University &mdash; Trustworthiness of AI</strong> (August 2023 &ndash; Present). Advisor: Dr. Long Cheng.</li>
+<li><strong>Clemson University &mdash; AI for Online Content Safety</strong> (August 2023 &ndash; Present). Advisor: Dr. Long Cheng.</li>
+<li><strong>Singapore University of Technology and Design &mdash; Biometric Authentication</strong> (May &ndash; August 2024). Advisor: Dr. Jianying Zhou.</li>
+<li><strong>Cleveland State University &mdash; Autonomous Vehicles and Object Detection</strong> (August 2021 &ndash; July 2023). Advisor: Dr. Hongkai Yu.</li>
+<li><strong>Brookhaven National Laboratory &mdash; Collision Avoidance Systems</strong> (March 2022 &ndash; July 2023). Advisors: Dr. Yonghua Du, Dr. Lu Ma, Dr. Yuewei Lin, and Dr. Hongkai Yu.</li>
+<li><strong>Xi'an Jiaotong University &mdash; Image Retrieval</strong> (September 2016 &ndash; June 2019). Advisor: Dr. Shanmin Pang.</li>
+</ul>
+</div>
+
+<div class="section-card">
 <h3>Work Experience</h3>
 <ul>
-<li>Algorithm Engineer, Chengdu Hsintiao Medical and Technology Company (October 2020 &#8211; July 2021)</li>
-<li>R&amp;D Engineer, Southeast Research Institute, China Unicom (August 2019 &#8211; September 2020)</li>
+<li><strong>Chengdu Hsintiao Medical Technology Co., Ltd.</strong> (October 2020 &ndash; August 2021). Algorithm Engineer &mdash; ECG Signal Analysis.</li>
+<li><strong>Southeast Research Institute of China Unicom</strong> (August 2019 &ndash; September 2020). R&amp;D Engineer &mdash; Computer Vision for Environmental Monitoring.</li>
 </ul>
 </div>
 
 {% if site.data.grants %}
 <div class="section-card">
-<h3>Grants</h3>
+<h3>Grant Proposal Contributions</h3>
+<p>Contributed to proposal preparation and technical narrative development for the following proposals; these entries describe proposal contributions, not awarded funding.</p>
 <ul>
 {% for grant in site.data.grants %}
 <li>{{ grant.name }}</li>
@@ -61,21 +74,10 @@ permalink: /about/
 
 {% if site.data.awards %}
 <div class="section-card">
-<h3>Awards</h3>
+<h3>Honors and Recognition</h3>
 <ul>
 {% for award in site.data.awards %}
 <li>{{ award.name | replace: "-","&#8211;" }}</li>
-{% endfor %}
-</ul>
-</div>
-{% endif %}
-
-{% if site.data.people %}
-<div class="section-card">
-<h3>Students and Mentoring</h3>
-<ul>
-{% for student in site.data.people %}
-<li>{{ student.name }}, {{ student.location }} ({{ student.degree }}, {{ student.year }})</li>
 {% endfor %}
 </ul>
 </div>
