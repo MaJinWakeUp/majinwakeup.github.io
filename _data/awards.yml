@@ -1,7 +1,7 @@
-# Awards and honors, shown on the About page (section auto-hides when empty).
-# Each entry needs: name. Uncomment / add entries when you have awards to list.
-# - name: Nobel Prize in Physics (1965)
-# - name: Albert Einstein Award (1954)
-# - name: E.O. Lawrence Award (1962)
-# - name: Oersted Medal, AAPT (1972)
-# - name: National Medal of Science (1979)
+# Honors and recognition shown on the About page.
+- name: Certificate of Appreciation (Volunteer), ACM AsiaCCS (2024)
+- name: Badge of Recognition, The ACM Web Conference (2024)
+- name: Excellent Graduation Thesis, Xi'an Jiaotong University (2019)
+- name: Excellent Graduate, Xi'an Jiaotong University (2019)
+- name: Successful Participant, National Graduate Mathematical Contest in Modeling (China, 2018)
+- name: Zhonghui Scholarship, Xi'an Jiaotong University (2018)
