@@ -52,9 +52,10 @@
   const searchInput = document.getElementById('pubSearch');
   if (searchInput) {
     const entriesArr = Array.from(document.querySelectorAll('[data-pub-searchable]'));
+    const sectionsArr = Array.from(document.querySelectorAll('[data-pub-section]'));
     const entriesData = entriesArr.map(function (entry) {
       return {
-        element: entry,
+        element: entry.closest('li') || entry,
         text: entry.textContent.toLowerCase()
       };
     });
@@ -68,6 +69,13 @@
           return;
         }
         data.element.style.display = data.text.includes(query) ? '' : 'none';
+      });
+
+      sectionsArr.forEach(function (section) {
+        const hasMatch = entriesData.some(function (data) {
+          return section.contains(data.element) && data.element.style.display !== 'none';
+        });
+        section.style.display = hasMatch ? '' : 'none';
       });
     });
   }
