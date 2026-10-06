@@ -20,7 +20,7 @@ Preconditions:
 
 - **Hero.** Open home. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /`. The hero text is `Jin Ma`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs text --selector ".home-hero"`. The subline names Ph.D. Candidate at Clemson University.
 - **Nav.** Choose Publications. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs click --role link --name "Publications"`. The URL path contains `/publications` and the heading is Publications. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id publications --text "Publications"`.
-- **Proof.** On home, run `snapshot --path home/page.aria.txt` and `screenshot --path home/page.png`. The snapshot contains a heading `Jin Ma` and links named `About`, `Publications`, `Teaching`, and `Service`.
+- **Proof.** Return home before capturing it. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /`. Then run `node .cursor/skills/verify-academic-site/scripts/verify.mjs snapshot --path home/page.aria.txt` and `node .cursor/skills/verify-academic-site/scripts/verify.mjs screenshot --path home/page.png`. The snapshot contains a heading `Jin Ma` and links named `About`, `Publications`, `Teaching`, and `Service`.
 
 ## Gotchas
 

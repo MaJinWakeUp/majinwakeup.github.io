@@ -22,7 +22,7 @@ Preconditions:
 - **About.** Open the page. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /about/`. The heading is About. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id about --text "About"`. The page names Jin Ma. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs text --selector ".pi-name"`.
 - **Teaching.** Open the page. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /teaching/`. The heading is Teaching. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id teaching --text "Teaching"`. The page body contains `CPSC 4200/6200 Computer Security Principles`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs text --id main-content`.
 - **Service.** Open the page. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /service/`. The heading is Service. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id service --text "Service"`. The page body contains `AsiaCCS 2024 Volunteer`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs text --id main-content`.
-- **Proof.** Run `screenshot --path pages/about.png` on About. The shot shows the heading About and the name Jin Ma.
+- **Proof.** Return to About before capturing it. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /about/`. Then run `node .cursor/skills/verify-academic-site/scripts/verify.mjs screenshot --path pages/about.png`. The shot shows the heading About and the name Jin Ma.
 
 ## Gotchas
 

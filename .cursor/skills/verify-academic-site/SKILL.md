@@ -19,11 +19,11 @@ eval "$(node .cursor/skills/verify-academic-site/scripts/verify.mjs launch)"
 
 That runs `bundle exec jekyll serve --host 127.0.0.1 --port <free> --destination <run>/site` on a port at or above `4010`, waits until `http://127.0.0.1:<port>/` returns HTTP 200 and a body that contains `Jin Ma`, and prints `export ACADEMIC_SITE_VERIFY_DIR=...`. The build goes to that run directory, not the checkout's `_site/`. Pass `--port` only when a specific free port is required. Pass `--dir` to choose the run directory; the default is `/tmp/academic-site-verify/<run-id>`.
 
-Ready means that HTTP response, not a fixed sleep. The log is `$ACADEMIC_SITE_VERIFY_DIR/dev.log`. A first build can take a while because `jekyll-scholar` renders `assets/ref.bib`.
+Ready means that HTTP response, not a fixed sleep. The log is `$ACADEMIC_SITE_VERIFY_DIR/dev.log`. A first build can take a while because `jekyll-scholar` renders `assets/ref.bib`. The server's start time is stored in `state.json` before that file says the run is running, so `stop` can clean up an interrupted launch. Chrome's start time is stored the same way.
 
 Two serves can run at once when they use different ports and destinations. Do not pass port `4000` if a server this run did not start is already there. `doctor` refuses a port whose listener is outside this run's process tree.
 
-Ruby, Bundler, and the Gemfile gems are required. Driving the page requires `google-chrome` on `PATH`, or `CHROME_PATH`. `launch` prints a single-quoted `export` so a `--dir` with spaces is preserved by `eval`. `doctor` identifies the listener with `lsof` when it is installed, and otherwise reads Linux `/proc`. `stop` signals a pid only when `ps` still reports the start time and command recorded at launch, and a second `stop` does nothing.
+Ruby, Bundler, and the Gemfile gems are required. Driving the page requires `google-chrome` on `PATH`, or `CHROME_PATH`. `launch` prints a single-quoted `export` so a `--dir` with spaces is preserved by `eval`. `doctor` identifies the listener with `lsof` when it is installed, and otherwise reads Linux `/proc`. `stop` signals a pid only when `ps` still reports the start time recorded at launch. That start time stays put if Bundler replaces itself. A second `stop` does nothing.
 
 ## Doctor
 
@@ -96,7 +96,7 @@ Exercise the served pages. Do not treat `npm test` or a raw read of `assets/ref.
 node .cursor/skills/verify-academic-site/scripts/verify.mjs stop
 ```
 
-`stop` signals the Jekyll server and Chrome only when `ps` still reports the start time and command recorded at launch. It then deletes the Chrome profile and the run's generated `site/` directory. It does not delete `$ACADEMIC_SITE_VERIFY_DIR/evidence` or the checkout's `_site/`. A second `stop` prints `already stopped` and does not signal anyone. After `stop`, `doctor` fails. Confirm the screenshot and snapshot are still in `evidence/` before treating the run as finished.
+`stop` signals the Jekyll server and Chrome only when `ps` still reports the start time recorded at launch. It then deletes the Chrome profile and the run's generated `site/` directory. It does not delete `$ACADEMIC_SITE_VERIFY_DIR/evidence` or the checkout's `_site/`. A second `stop` prints `already stopped` and does not signal anyone. After `stop`, `doctor` fails. Confirm the screenshot and snapshot are still in `evidence/` before treating the run as finished.
 
 Do not kill a process by name. Do not stop a Jekyll pid that `launch` did not record.
 

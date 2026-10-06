@@ -20,8 +20,8 @@ Preconditions:
 - Home is open: `open /`.
 
 - **First click.** Toggle the theme. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs click --label "Toggle dark mode"`. The document theme and the stored value match. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs attr --selector "html" --name data-bs-theme` and `node .cursor/skills/verify-academic-site/scripts/verify.mjs storage --key theme`. Both print the same word, `light` or `dark`.
+- **Proof.** Capture that first saved theme before toggling again. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs screenshot --path dark-mode/toggled.png`. The shot shows the navbar toggle and the page in the theme `storage` just reported.
 - **Second click.** Toggle again. Run the click command a second time. Both commands now print the other word.
-- **Proof.** Run `screenshot --path dark-mode/toggled.png` after the first click. The shot shows the navbar toggle and the page in the theme `storage` reported.
 
 ## Gotchas
 
