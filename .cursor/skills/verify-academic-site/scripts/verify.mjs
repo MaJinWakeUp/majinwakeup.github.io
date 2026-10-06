@@ -98,10 +98,33 @@ function parentPid(pid) {
   try {
     const status = readFileSync(`/proc/${pid}/status`, "utf8");
     const line = status.split("\n").find((entry) => entry.startsWith("PPid:"));
-    return line ? Number(line.split(/\s+/)[1]) : 0;
-  } catch {
-    return 0;
-  }
+    if (line) return Number(line.split(/\s+/)[1]);
+  } catch { /* macOS has no /proc, or the process already exited */ }
+  const result = spawnSync("ps", ["-p", String(pid), "-o", "ppid="], { encoding: "utf8" });
+  if (result.status !== 0) return 0;
+  const value = Number(result.stdout.trim());
+  return Number.isFinite(value) ? value : 0;
+}
+
+function processStamp(pid) {
+  if (!pidAlive(pid)) return null;
+  const started = spawnSync("ps", ["-p", String(pid), "-o", "lstart="], { encoding: "utf8" });
+  const command = spawnSync("ps", ["-ww", "-p", String(pid), "-o", "command="], { encoding: "utf8" });
+  if (started.status !== 0 || command.status !== 0) return null;
+  const startedAt = started.stdout.trim();
+  const commandLine = command.stdout.trim();
+  if (!startedAt || !commandLine) return null;
+  return { startedAt, command: commandLine };
+}
+
+function sameProcess(pid, stamp) {
+  if (!stamp || !pidAlive(pid)) return false;
+  const current = processStamp(pid);
+  return Boolean(current && current.startedAt === stamp.startedAt && current.command === stamp.command);
+}
+
+function shellQuote(value) {
+  return `'${String(value).replaceAll("'", `'\\''`)}'`;
 }
 
 function isInProcessTree(ancestor, pid) {
@@ -115,7 +138,20 @@ function isInProcessTree(ancestor, pid) {
   return false;
 }
 
-function listeningPids(port) {
+function listeningPidsFromLsof(port) {
+  const result = spawnSync("lsof", ["-nP", `-iTCP:${port}`, "-sTCP:LISTEN", "-Fp"], { encoding: "utf8" });
+  if (result.error && result.error.code === "ENOENT") return null;
+  if (result.status !== 0 && result.status !== 1) return null;
+  const pids = [];
+  for (const line of (result.stdout || "").split("\n")) {
+    if (!line.startsWith("p")) continue;
+    const pid = Number(line.slice(1));
+    if (pid) pids.push(pid);
+  }
+  return pids;
+}
+
+function listeningPidsFromProc(port) {
   const hex = port.toString(16).toUpperCase().padStart(4, "0");
   const inodes = new Set();
   for (const file of ["/proc/net/tcp", "/proc/net/tcp6"]) {
@@ -147,6 +183,32 @@ function listeningPids(port) {
     }
   }
   return pids;
+}
+
+function listeningPids(port) {
+  const fromLsof = listeningPidsFromLsof(port);
+  if (fromLsof !== null) return fromLsof;
+  if (existsSync("/proc/net/tcp") || existsSync("/proc/net/tcp6")) return listeningPidsFromProc(port);
+  throw new Error("Cannot identify the process listening on the port. Install lsof, or run on Linux where /proc is available.");
+}
+
+function assertServerOwned(state) {
+  if (state.status !== "running") {
+    fail(`Instance at ${state.dir} is ${state.status}. Launch a new directory.`);
+  }
+  if (!sameProcess(state.pid, state.server)) {
+    fail(`Dev server pid ${state.pid} is not the process this run started.`);
+  }
+  let listeners;
+  try {
+    listeners = listeningPids(state.port);
+  } catch (error) {
+    fail(error instanceof Error ? error.message : String(error));
+  }
+  const owned = listeners.some((pid) => isInProcessTree(state.pid, pid));
+  if (!owned) {
+    fail(`Port ${state.port} is not owned by pid ${state.pid} (listeners: ${listeners.join(",") || "none"}). Refusing to drive it.`);
+  }
 }
 
 function freePort(start) {
@@ -223,7 +285,7 @@ function connectCdp(wsUrl) {
 }
 
 async function ensureChrome(dir, state) {
-  if (state.chromePid && pidAlive(state.chromePid) && state.chromePort) {
+  if (state.chromePid && state.chromePort && sameProcess(state.chromePid, state.chrome)) {
     try {
       const version = await fetch(`http://127.0.0.1:${state.chromePort}/json/version`);
       if (version.ok) return state;
@@ -261,7 +323,12 @@ async function ensureChrome(dir, state) {
   while (Date.now() < deadline) {
     try {
       const version = await fetch(`http://127.0.0.1:${chromePort}/json/version`);
-      if (version.ok) return state;
+      if (version.ok) {
+        state.chrome = processStamp(child.pid);
+        if (!state.chrome) fail("Chrome started but its process identity could not be recorded.");
+        writeState(dir, state);
+        return state;
+      }
     } catch { /* chrome still starting */ }
     if (!pidAlive(child.pid)) fail(`Chrome exited during startup. See ${path.join(dir, "chrome.log")}`);
     await delay(200);
@@ -271,7 +338,7 @@ async function ensureChrome(dir, state) {
 
 async function withPage(dir, fn) {
   const state = readState(dir);
-  if (state.status !== "running") fail(`Instance at ${dir} is ${state.status}. Launch a new directory.`);
+  assertServerOwned(state);
   await ensureChrome(dir, state);
   const list = await fetch(`http://127.0.0.1:${state.chromePort}/json/list`).then((response) => response.json());
   const page = list.find((target) => target.type === "page");
@@ -399,10 +466,13 @@ async function launch(args) {
       const response = await fetch(`${state.url}/`, { redirect: "follow" });
       const body = await response.text();
       if (response.status === 200 && body.includes("Jin Ma")) {
+        state.server = processStamp(child.pid);
+        if (!state.server) fail("Jekyll is ready but its process identity could not be recorded.");
+        writeState(dir, state);
         console.error(`Academic site ready at ${state.url}/`);
         console.error(`pid ${state.pid}`);
         console.error(`evidence ${state.evidenceDir}`);
-        console.log(`export ACADEMIC_SITE_VERIFY_DIR=${dir}`);
+        console.log(`export ACADEMIC_SITE_VERIFY_DIR=${shellQuote(dir)}`);
         return;
       }
       last = `HTTP ${response.status}`;
@@ -411,9 +481,9 @@ async function launch(args) {
     }
     await delay(500);
   }
-  killGroup(child.pid);
-  await delay(500);
-  killGroupHard(child.pid);
+  if (!state.server) state.server = processStamp(child.pid);
+  if (state.server) await stopRecorded(child.pid, state.server, "server");
+  else if (pidAlive(child.pid)) killGroup(child.pid);
   state.status = "stopped";
   writeState(dir, state);
   const tail = existsSync(state.logPath) ? readFileSync(state.logPath, "utf8").split("\n").slice(-40).join("\n") : "";
@@ -423,14 +493,7 @@ async function launch(args) {
 async function doctor(args) {
   const dir = requireDir(args);
   const state = readState(dir);
-  if (state.status !== "running" || !pidAlive(state.pid)) {
-    fail(`Instance is not running (status ${state.status}, pid ${state.pid}).`);
-  }
-  const listeners = listeningPids(state.port);
-  const owned = listeners.some((pid) => isInProcessTree(state.pid, pid));
-  if (!owned) {
-    fail(`Port ${state.port} is not owned by pid ${state.pid} (listeners: ${listeners.join(",") || "none"}). Refusing to drive it.`);
-  }
+  assertServerOwned(state);
   const response = await fetch(`${state.url}/`);
   const body = await response.text();
   if (response.status !== 200 || !body.includes("Jin Ma")) {
@@ -447,14 +510,28 @@ async function doctor(args) {
   console.log(`evidence: ${state.evidenceDir}`);
 }
 
+async function stopRecorded(pid, stamp, label) {
+  if (!pid) return;
+  if (!pidAlive(pid)) return;
+  if (!sameProcess(pid, stamp)) {
+    console.error(`Refusing to signal ${label} pid ${pid}: it is no longer the process this run started.`);
+    return;
+  }
+  killGroup(pid);
+  await delay(800);
+  if (sameProcess(pid, stamp)) killGroupHard(pid);
+}
+
 async function stop(args) {
   const dir = requireDir(args);
   const state = readState(dir);
-  killGroup(state.pid);
-  killGroup(state.chromePid);
-  await delay(800);
-  if (pidAlive(state.pid)) killGroupHard(state.pid);
-  if (pidAlive(state.chromePid)) killGroupHard(state.chromePid);
+  if (state.status === "stopped") {
+    console.log("already stopped");
+    console.log(`evidence ${state.evidenceDir}`);
+    return;
+  }
+  await stopRecorded(state.pid, state.server, "server");
+  await stopRecorded(state.chromePid, state.chrome, "chrome");
   if (state.chromeProfile) rmSync(state.chromeProfile, { recursive: true, force: true });
   if (state.destination) rmSync(state.destination, { recursive: true, force: true });
   state.status = "stopped";
@@ -608,12 +685,47 @@ async function waitFor(args) {
           console.log(String(last).replace(/\s+/g, " ").trim());
           return;
         }
+      } else if (args.id && args.attr && args.lacks) {
+        last = await evaluate(session, `document.getElementById(${JSON.stringify(args.id)})?.getAttribute(${JSON.stringify(args.attr)}) ?? ""`);
+        if (!String(last).split(/\s+/).includes(String(args.lacks))) {
+          console.log(last);
+          return;
+        }
       } else {
-        fail("wait needs --url-includes, or --id with --text or --value, or --selector with --text.");
+        fail("wait needs --url-includes, --id with --text or --value, --selector with --text, or --id with --attr and --lacks.");
       }
       await delay(200);
     }
     fail(`Timed out waiting. Last value: ${String(last).replace(/\s+/g, " ").trim()}`);
+  });
+}
+
+async function press(args) {
+  const dir = requireDir(args);
+  const keyName = args.key;
+  if (!keyName) fail("press needs --key, for example Escape or k.");
+  const mod = args.mod ? String(args.mod) : "";
+  const modifiers = { ctrl: 2, control: 2, meta: 4, cmd: 4, command: 4, alt: 1, shift: 8 };
+  if (mod && modifiers[mod] === undefined) fail(`Unknown --mod ${mod}. Use ctrl, meta, alt, or shift.`);
+  const named = {
+    Escape: { key: "Escape", code: "Escape", windowsVirtualKeyCode: 27 },
+    Enter: { key: "Enter", code: "Enter", windowsVirtualKeyCode: 13 },
+  }[keyName] || {
+    key: keyName,
+    code: keyName.length === 1 ? `Key${keyName.toUpperCase()}` : keyName,
+    windowsVirtualKeyCode: keyName.length === 1 ? keyName.toUpperCase().charCodeAt(0) : 0,
+  };
+  await withPage(dir, async (session) => {
+    const event = {
+      modifiers: mod ? modifiers[mod] : 0,
+      key: named.key,
+      code: named.code,
+      windowsVirtualKeyCode: named.windowsVirtualKeyCode,
+      nativeVirtualKeyCode: named.windowsVirtualKeyCode,
+    };
+    await session.send("Input.dispatchKeyEvent", { ...event, type: "keyDown" });
+    await session.send("Input.dispatchKeyEvent", { ...event, type: "keyUp" });
+    console.log(mod ? `${mod}+${keyName}` : keyName);
   });
 }
 
@@ -666,11 +778,12 @@ const commands = {
   url: readUrl,
   storage: readStorage,
   wait: waitFor,
+  press,
   snapshot,
   screenshot,
 };
 
 if (!commands[command]) {
-  fail(`Usage: verify.mjs <launch|doctor|stop|open|click|select|fill|text|attr|url|storage|wait|snapshot|screenshot>`);
+  fail(`Usage: verify.mjs <launch|doctor|stop|open|click|select|fill|text|attr|url|storage|wait|press|snapshot|screenshot>`);
 }
 await commands[command](args);

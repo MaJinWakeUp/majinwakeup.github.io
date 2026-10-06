@@ -22,8 +22,8 @@ Preconditions:
 
 - **Open.** Open the page. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs open /publications/`. The heading is present. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id publications --text "Publications"`.
 - **Match.** Type `DisPatch`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs fill --label "Filter publications by title, author, or year" --value "DisPatch"`. The visible list contains `DisPatch` and does not contain `Deep transfer learning for intelligent vehicle perception`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs text --id pubList`.
+- **Proof.** Capture while `DisPatch` is still the query, before clearing it. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs snapshot --path publications/dispatch.aria.txt` and `node .cursor/skills/verify-academic-site/scripts/verify.mjs screenshot --path publications/dispatch.png`. The screenshot shows `DisPatch` in the filter and in the list.
 - **Clear.** Empty the field. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs fill --label "Filter publications by title, author, or year" --value ""`. The visible list contains `Deep transfer learning for intelligent vehicle perception` again.
-- **Proof.** After the DisPatch query, run `snapshot --path publications/dispatch.aria.txt` and `screenshot --path publications/dispatch.png`. The screenshot shows `DisPatch` and the filter text.
 
 ## Gotchas
 

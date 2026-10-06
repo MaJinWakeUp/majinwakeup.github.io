@@ -23,7 +23,7 @@ Ready means that HTTP response, not a fixed sleep. The log is `$ACADEMIC_SITE_VE
 
 Two serves can run at once when they use different ports and destinations. Do not pass port `4000` if a server this run did not start is already there. `doctor` refuses a port whose listener is outside this run's process tree.
 
-Ruby, Bundler, and the Gemfile gems are required. Driving the page requires `google-chrome` on `PATH`, or `CHROME_PATH`.
+Ruby, Bundler, and the Gemfile gems are required. Driving the page requires `google-chrome` on `PATH`, or `CHROME_PATH`. `launch` prints a single-quoted `export` so a `--dir` with spaces is preserved by `eval`. `doctor` identifies the listener with `lsof` when it is installed, and otherwise reads Linux `/proc`. `stop` signals a pid only when `ps` still reports the start time and command recorded at launch, and a second `stop` does nothing.
 
 ## Doctor
 
@@ -55,6 +55,8 @@ node .cursor/skills/verify-academic-site/scripts/verify.mjs attr --selector "htm
 node .cursor/skills/verify-academic-site/scripts/verify.mjs storage --key theme
 node .cursor/skills/verify-academic-site/scripts/verify.mjs url
 node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id publications --text "Publications"
+node .cursor/skills/verify-academic-site/scripts/verify.mjs press --key Escape
+node .cursor/skills/verify-academic-site/scripts/verify.mjs press --key k --mod ctrl
 node .cursor/skills/verify-academic-site/scripts/verify.mjs snapshot --path publications/dispatch.aria.txt
 node .cursor/skills/verify-academic-site/scripts/verify.mjs screenshot --path publications/dispatch.png
 ```
@@ -94,10 +96,10 @@ Exercise the served pages. Do not treat `npm test` or a raw read of `assets/ref.
 node .cursor/skills/verify-academic-site/scripts/verify.mjs stop
 ```
 
-`stop` sends `SIGTERM`, then `SIGKILL`, to the process groups of the Jekyll server and Chrome that this run started. It deletes the Chrome profile and the run's generated `site/` directory. It does not delete `$ACADEMIC_SITE_VERIFY_DIR/evidence` or the checkout's `_site/`. After `stop`, `doctor` fails. Confirm the screenshot and snapshot are still in `evidence/` before treating the run as finished.
+`stop` signals the Jekyll server and Chrome only when `ps` still reports the start time and command recorded at launch. It then deletes the Chrome profile and the run's generated `site/` directory. It does not delete `$ACADEMIC_SITE_VERIFY_DIR/evidence` or the checkout's `_site/`. A second `stop` prints `already stopped` and does not signal anyone. After `stop`, `doctor` fails. Confirm the screenshot and snapshot are still in `evidence/` before treating the run as finished.
 
 Do not kill a process by name. Do not stop a Jekyll pid that `launch` did not record.
 
 ## Helpers
 
-The only helper is `scripts/verify.mjs`, already executable. Invoke it as shown above from the repo root. Commands: `launch`, `doctor`, `stop`, `open`, `click`, `select`, `fill`, `text`, `attr`, `url`, `storage`, `wait`, `snapshot`, `screenshot`.
+The only helper is `scripts/verify.mjs`, already executable. Invoke it as shown above from the repo root. Commands: `launch`, `doctor`, `stop`, `open`, `click`, `select`, `fill`, `text`, `attr`, `url`, `storage`, `wait`, `press`, `snapshot`, `screenshot`. `press --key Escape` sends Escape. `press --key k --mod ctrl` sends Ctrl+K. `wait --id <id> --attr class --lacks open` waits until that class token is absent.

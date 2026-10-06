@@ -21,10 +21,12 @@ Preconditions:
 - `doctor` reports `listener: owned`.
 - A page is open. `open /` is enough.
 
-- **Open.** Choose search. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs click --label "Search site"`. The field labeled `Search pages` is in the page.
+- **Open.** Choose search. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs click --label "Search site"`. The overlay class contains `open`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs attr --id searchOverlay --name class`.
 - **Match.** Type `Teaching`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs fill --label "Search pages" --value "Teaching"`. Wait for the result. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id searchResults --text "Teaching"`.
+- **Proof.** Capture while `Teaching` is still the query. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs screenshot --path site-search/teaching.png`. The shot shows the overlay and a Teaching result.
 - **Miss.** Replace the query with `zzznomatch`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs fill --label "Search pages" --value "zzznomatch"`. The results say `No results for "zzznomatch"`. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id searchResults --text "No results"`.
-- **Proof.** After the Teaching query, run `screenshot --path site-search/teaching.png`. The shot shows the overlay and a Teaching result.
+- **Close.** Press Escape. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs press --key Escape`. The overlay class no longer contains `open`, and the field is empty. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs wait --id searchOverlay --attr class --lacks open` and `node .cursor/skills/verify-academic-site/scripts/verify.mjs attr --id searchInput --name value`.
+- **Keyboard open.** Press Ctrl+K. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs press --key k --mod ctrl`. The overlay class contains `open` again. Run `node .cursor/skills/verify-academic-site/scripts/verify.mjs attr --id searchOverlay --name class`.
 
 ## Gotchas
 
